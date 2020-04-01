@@ -1,0 +1,187 @@
+.mui-input-group:before{
+
+	height:0px
+
+}
+
+.mui-input-group:after{
+
+	height: 0px;
+
+}
+
+.img{
+
+	position:absolute;
+
+	width:25%;
+
+	left:0px;
+
+	right:0px;
+
+	margin:auto;
+
+	margin-top:0px;
+
+	top:18%;
+
+}
+
+.form{
+
+	position:absolute;
+
+	top:30%;
+
+	height:0px;
+
+	left:0px;
+
+	right:0px;
+
+	margin: auto;
+
+	width: 100%;
+
+}
+.frombox {
+	position: relative;
+	border:0px solid #ccc;
+	padding:40px 20px;
+	box-shadow:inset 0 2px 4px 2px #D9E2F1;
+	margin-top: -50px;
+	background: rgba(68,68,102,.7);
+	width: 78%;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+.jzmm {
+	float:left;
+	color:#fff;
+}
+.wjmm a {
+	color: #fff;
+}
+.formdiv{
+
+	height:2.5em;
+
+	background-color:#fff;
+
+	margin-bottom: 30px;
+
+	box-shadow: 1px 1px 1px 1px #925954;
+
+}
+
+.formimg{
+
+	position:absolute;
+
+	width:35px;
+
+	margin-left:15px;
+
+	margin-top: 4px;
+
+}
+
+.forminput{
+
+	color:#0062CC;
+
+	margin-top:10px;
+
+	margin-left:22%;
+
+	font-size:0.9em;
+
+	font-family:'微软雅黑';
+
+	border: 1px solid #ccc !important;
+
+}
+
+.formdiv2{
+
+	height:2.5em;
+
+	background-color:#fff;
+
+	margin-bottom:30px;
+
+	box-shadow: 1px 1px 1px 1px #925954;
+
+}
+
+.formimg2{
+
+	position:absolute;
+
+	width:35px;
+
+	margin-left:15px;
+
+	margin-top: 5px;
+
+}
+
+.forminput2{
+
+	color:#0062CC;
+
+	margin-top:2px;
+
+	margin-left:18%;
+
+	font-size:0.9em;
+
+	font-family:'微软雅黑';
+
+}
+
+.formdiv3{
+
+	position:absolute;
+
+	right:1px;
+
+	font-family:'微软雅黑';
+
+	color: #929292;
+
+}
+
+.login{
+
+	line-height:2em;
+
+	font-size:0.9em;
+
+	width:80%;
+
+	font-family:'微软雅黑';
+
+	border-radius:10px;
+
+	border:0px solid;
+
+	background:linear-gradient(45deg,BLUE,purple);
+
+}
+
+.reg{
+	width: 100%;
+
+	text-align: center;
+
+	font-family:'微软雅黑';
+
+	color:linear-gradient(45deg,BLUE,purple);
+
+	font-size: 1.1rem;
+
+	color: #FFCD42;
+
+}

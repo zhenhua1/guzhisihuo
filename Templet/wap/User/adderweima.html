@@ -1,0 +1,2717 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+	<title>银行卡管理</title>
+
+	<link href="/Public/home/wap/css/mui.min.css" rel="stylesheet">
+
+	<link href="/Public/home/wap/css/public.css" rel="stylesheet">
+
+	<script src="/Public/home/wap/css/canvas/jquery.js"></script>
+
+	<script type="text/javascript" src="/Public/home/common/js/jquery-1.9.1.min.js"></script>
+
+	<script type="text/javascript" src="/Public/home/common/layer/layer.js"></script>
+
+	<script type="text/javascript" src="/Public/home/common/js/index.js"></script>
+
+	<script type="text/javascript" src="/Public/home/common/js/public.js"></script>
+
+	<script type="text/javascript" src="/Public/home/common/js/common.js"></script>
+
+	<script type="text/javascript" src="/Public/home/wap/js/mui.min.js"></script>
+
+	<style>
+
+		.body {
+
+			line-height: px;
+
+		}
+
+
+
+		.mui-table-view-cell:after {
+
+			left: 0px;
+
+
+
+		}
+
+
+
+		.mui-table-view:before {
+
+			position: relative !important;
+
+		}
+
+
+
+		/* .mui-table-view:after{
+
+
+
+		} */
+
+		.mui-input-group:before {
+
+			height: 0px
+
+		}
+
+
+
+		.mui-table-view:after {
+
+			position: relative;
+
+		}
+
+
+
+		.mui-input-group:after {
+
+			height: 0px;
+
+		}
+
+
+
+		.head {
+
+			background: #af3a17;
+
+			top: 0;
+
+			-webkit-box-shadow: 0 0px 0px #ccc;
+
+		}
+
+
+
+		.headh1 {
+
+			text-align: center;
+
+			font-family: '微软雅黑';
+
+			color: #fff;
+
+		}
+
+
+
+		.erweima {
+
+			background: #fff;
+
+			height: 180px;
+
+			width: 175px;
+
+			padding-top: 1px;
+
+			top: 80px;
+
+			margin: auto;
+
+			left: 0px;
+
+			right: 0px;
+
+			border-radius: 10px;
+
+			/* box-shadow:2px 0px 20px 0px #007AFF; */
+
+		}
+
+
+
+		.img {
+
+			width: 120px;
+
+			margin-left: 26px;
+
+			margin-top: 20px;
+
+		}
+
+
+
+		.spanerweima {
+
+			color: #fff;
+
+			font-family: '微软雅黑';
+
+			font-size: 0.9em;
+
+			margin-left: 42px;
+
+		}
+
+
+
+		.spanleixing {
+
+			margin-top: 12px;
+
+			color: #CCCCCC;
+
+			top: -30px;
+
+			font-size: 0.9em;
+
+			font-family: '微软雅黑';
+
+		}
+
+
+
+		.ulleixing {
+
+			background: #fff;
+
+			color: #0062CC;
+
+			font-size: 0.9em;
+
+			margin-top: 100px !important;
+
+			font-family: '微软雅黑';
+
+			border-radius: 12px;
+
+			margin: 0 auto;
+
+			width: 80%;
+
+		}
+
+
+
+		.form {
+			width: 80%;
+			margin: auto;
+			margin-top: 40px;
+			padding: 10px;
+			border-radius: 10px;
+		}
+
+
+
+		.divinput {
+
+			border-radius: 30px;
+
+			background-color: #fff;
+
+			margin-top: 20px;
+			border: 1px solid #ccc;
+
+		}
+
+
+
+		.formimg {
+
+			width: 35px;
+
+			margin-left: 15px;
+
+		}
+
+
+
+		.formmoney,
+
+		.formzh {
+
+			color: #000 !important;
+
+			width: 70% !important;
+
+			/* margin-top:0px;
+
+			margin-left:18%; */
+
+			padding-left: 50px !important;
+
+			font-size: 0.9em;
+
+			font-family: '微软雅黑';
+
+		}
+
+
+
+		.buttonadd {
+
+			padding: 2px 0;
+
+			color: white;
+
+			line-height: 2em;
+
+			font-size: 1.2em;
+
+			width: 100%;
+
+			font-family: '黑体';
+
+
+			border: 0px solid;
+
+			background-image: linear-gradient(to right, #f34a4a 0%, #f58c33 51%, #f34a4a);
+
+			box-shadow: 1px 1px 1px 1px #ef9b9b;
+
+
+
+		}
+
+
+
+		.files {
+
+			margin-right: 120px;
+
+			width: 120px;
+
+			text-align: center;
+
+		}
+
+
+
+		.f1 {
+
+			float: left;
+
+		}
+
+
+
+		.file-btn {
+
+			display: block;
+
+			position: relative;
+
+			margin-right: 120px;
+
+			width: 120px;
+
+			height: 120px;
+
+			overflow: hidden;
+
+		}
+
+
+
+		img {
+
+			border: 0;
+
+			vertical-align: middle;
+
+			display: inline-block;
+
+		}
+
+
+
+		.file-btn3 input,
+
+		.file-btn input {
+
+			position: absolute;
+
+			left: 0;
+
+			top: 0;
+
+			width: 100%;
+
+			height: 100%;
+
+			border: none;
+
+			margin: 0;
+
+			opacity: 0;
+
+			cursor: pointer;
+
+		}
+
+
+
+		.buttonGeoup .not_next {
+
+			width: 100%;
+
+			margin: 0 auto;
+
+			display: block;
+
+			text-align: center;
+
+			background: #073b6b;
+
+			height: 40px;
+
+			line-height: 40px;
+
+			color: #fff;
+
+			font-size: 12px;
+
+			margin-bottom: 10px;
+
+			border-radius: 10px;
+
+		}
+
+
+
+		.mui-table-view {
+
+			background: #fff !important;
+
+		}
+
+
+
+		.mui-table-view a {
+
+			color: #000 !important
+
+		}
+
+
+
+		.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after {
+
+			color: #000;
+
+		}
+
+
+
+		#pic {
+
+			margin-top: 15px !important;
+
+			width: 150px;
+
+			margin: 0 auto;
+
+			height: 150px;
+
+			background: url(../Public/home/wap/images/tianjia.png) no-repeat;
+
+			background-size: 150px 150px;
+
+
+
+		}
+
+
+
+		#pic img {
+
+			width: 150px !important;
+
+			height: 150px !important;
+
+		}
+
+
+
+		.mask {
+
+			position: fixed;
+
+			width: 100%;
+
+			height: 100%;
+
+			z-index: 9999;
+
+			top: 0;
+
+			left: 0;
+
+			bottom: 0;
+
+			right: 0;
+
+			background: rgba(0, 0, 0, .5);
+
+		}
+
+
+
+		.mask_content {
+
+			width: 50%;
+
+			margin: 48% auto;
+
+			text-align: center
+
+		}
+
+		.mask_content input{
+
+			width: 200px;
+
+			height: 40px;
+
+			border-radius: 8px;
+
+			margin-top: 10px;
+
+		}
+
+	</style>
+
+</head>
+
+
+
+<body style="background-image: linear-gradient(to right, #f9bc91 0%,#f77759 99%);">
+
+	<header class="mui-bar mui-bar-nav head header">
+
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+		<h1 class="mui-title headh1">上传银行卡照片卡号面</h1>
+
+	</header>
+
+	<div class="mui-card-content erweima">
+
+		<!--
+
+		<div class="opiniontop_d" style=" background: none;width: 80%;margin: 5px auto 0 auto;height:170px; border-radius:5px;">
+
+	    	<div class="clear oneimg" style="width:100%;height:100%;color:#000;padding:10px 5px;">
+
+                <div id="filelist1" class="files fl" style="margin: 15% auto;">
+
+                    <span id="filePicker1" class="file-btn webuploader-container">
+
+						<div class="webuploader-pick">
+
+							<img src="../Public/home/wap/images/tianjia.png"  id="img1" onload="setImgWH(this)"  />
+
+						</div>
+
+						<div id="rt_rt_1cvagj2mr16sv1dg91skisdj1qfr1" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 100%; overflow: hidden; bottom: auto; right: auto;display:none;">
+
+							<input type="file" name="file" class="webuploader-element-invisible" accept="image/jpg,image/gif,image/png,image/jpeg">
+
+							<label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+
+						</div>
+
+					</span>
+
+					<input type="hidden" name="icon" id="icon" value="">
+
+					<input type="hidden" name="ewmclass" id="ewmclass" value="1">
+
+            	</div>
+
+            </div>
+
+		</div>
+
+	 	-->
+
+
+
+		<div id="pic" style="color:#fff">
+
+			<img id="picShow" src="" alt="">
+
+		</div>
+
+		<input id="upload" name="file" accept="image/*" type="file" style="display: none">
+
+
+
+	</div>
+
+	<ul class="mui-table-view mui-table-view-radio ulleixing">
+
+		<span class="spanleixing">【请选择收款类型】</span>
+
+		<!--
+
+				<li class="mui-table-view-cell mui-selected " id="checkedclass_wx">
+
+					<a class="mui-navigate-right">微信</a>
+
+				</li>
+
+				<li class="mui-table-view-cell"  id="checkedclass_zfb">
+
+					<a class="mui-navigate-right">支付宝</a>
+
+				</li>
+
+			-->
+
+
+
+		<li class="mui-table-view-cell mui-selected" id="checkedclass_bank">
+
+			<a class="mui-navigate-right">转银行卡</a>
+
+		</li>
+
+	</ul>
+
+	<form class="mui-input-group form">
+
+		<div class="mui-input-row divinput">
+
+			<img src="../Public/home/wap/images/nubmer.png" class="formimg" />
+
+			<input type="number" class="formmoney" name="price" id="price" placeholder="收款金额">
+
+		</div>
+
+		<div class="mui-input-row divinput">
+
+			<img src="../Public/home/wap/images/mima.png" class="formimg" />
+
+			<input type="text" class="formzh" name="skaccount" id="skaccount" placeholder="收款账号">
+
+		</div>
+
+		<br>
+
+		<div class="mui-button-row" style="margin-bottom: 60px;">
+
+			<button type="button" class="mui-btn mui-btn-danger buttonadd" id="cuanjdd" >上传</button>
+
+		</div>
+
+	</form>
+
+	<div class="mask" style="display: none">
+
+		<div class="mask_content">
+
+			<input type="button" value="选择拍照" id="paizhao">
+
+			<br>
+
+			<br>
+
+			<input type="button" value="选择相册" id="xiangche">
+
+		</div>
+
+	</div>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+	$('#checkedclass_wx').click(function () {
+
+		$('#checkedclass_wx').addClass("mui-selected");
+
+		$('#checkedclass_zfb').removeClass("mui-selected");
+
+		$('#checkedclass_bank').removeClass("mui-selected");
+
+		$('#ewmclass').val(1);
+
+	});
+
+	$('#checkedclass_zfb').click(function () {
+
+		$('#checkedclass_zfb').addClass("mui-selected");
+
+		$('#checkedclass_wx').removeClass("mui-selected");
+
+		$('#checkedclass_bank').removeClass("mui-selected");
+
+		$('#ewmclass').val(2);
+
+	});
+
+	$('#checkedclass_bank').click(function () {
+
+		$('#checkedclass_bank').addClass("mui-selected");
+
+		$('#checkedclass_zfb').removeClass("mui-selected");
+
+		$('#checkedclass_wx').removeClass("mui-selected");
+
+		$('#ewmclass').val(3);
+
+	});
+
+
+
+</script>
+
+<!-- <script type="text/javascript">
+
+		var UPLOAD_URL = "/Home/User/uploadfile.html";
+
+		var SWF_URL = '/Public/js/Uploader.swf';
+
+
+
+
+
+	 $(function () {
+
+		 upload1();
+
+	 });
+
+    </script> -->
+
+
+
+<style>
+
+	.z_alert {
+
+		color: #333;
+
+	}
+
+
+
+	.z_alert span {
+
+		color: #0da8f5;
+
+	}
+
+</style>
+
+
+
+
+
+<script>
+
+	// function app1(){
+
+	// // 	function plusReady(){
+
+	// // 	// 弹出系统选择按钮框
+
+	// // 	mui("body").on("tap","#pic",function(){
+
+	// // 		page.imgUp();
+
+	// // 	})
+
+
+
+	// // 	mui("body").on("tap",".mask",function(){
+
+	// // 		page.imgDown();
+
+	// // 	})
+
+
+
+	// // 	mui("body").on("tap","#paizhao",function(){
+
+	// // 		appendByCamera();
+
+	// // 	})
+
+
+
+	// // 	mui("body").on("tap","#xiangche",function(){
+
+	// // 		appendByGallery();
+
+	// // 	})
+
+
+
+	// // }
+
+	// // var page=null;
+
+	// // page={
+
+	// // 	imgUp:function(){
+
+	// // 		var m=this;
+
+	// // 		$(".mask").show();
+
+	// // 		// plus.nativeUI.actionSheet({cancel:"取消",buttons:[
+
+	// // 		// 	{title:"拍照"},
+
+	// // 		// 	{title:"从相册中选择"}
+
+	// // 		// ]}, function(e){//1 是拍照  2 从相册中选择
+
+	// // 		// 	switch(e.index){
+
+	// // 		// 		case 1:appendByCamera();break;
+
+	// // 		// 		case 2:appendByGallery();break;
+
+	// // 		// 	}
+
+	// // 		// });
+
+	// // 	},
+
+	// // 	imgDown:function(){
+
+	// // 		$(".mask").hide();
+
+	// // 	}
+
+	// // 	//摄像头
+
+	// // }
+
+
+
+	// // // 拍照添加文件
+
+	// // function appendByCamera(){
+
+	// // 	plus.camera.getCamera().captureImage(function(e){
+
+	// // 		plus.io.resolveLocalFileSystemURL(e, function(entry) {
+
+	// // 			var path = entry.toLocalURL();
+
+	// // 			entry.file( function(file){
+
+	// // 				ResizeImage(path, file.name);
+
+	// // 			} );
+
+	// // 		}, function(e) {
+
+	// // 			mui.toast("读取拍照文件错误：" + e.message);
+
+	// // 		});
+
+
+
+	// // 	});
+
+	// // }
+
+	// // // 从相册添加文件
+
+	// // function appendByGallery(){
+
+	// // 	plus.gallery.pick(function(path){
+
+	// // 		plus.io.resolveLocalFileSystemURL(path, function(entry) {
+
+	// // 			var path = entry.toLocalURL();
+
+	// // 			entry.file( function(file){
+
+	// // 				ResizeImage(path, file.name);
+
+	// // 			} );
+
+	// // 		}, function(e) {
+
+	// // 			mui.toast("读取照片文件错误：" + e.message);
+
+	// // 		});
+
+	// // 		// alert(path);
+
+	// // 		// ResizeImage(path);
+
+	// // 		// document.getElementById("picShow").src = path;
+
+	// // 	});
+
+	// // }
+
+	// // var pic='';
+
+	// // function ResizeImage(src, name) {
+
+	// // 	src = src.replace('file://','');
+
+	// // 	var fileid = name+'_thumb';//图片名称
+
+	// // 	plus.zip.compressImage({
+
+	// // 			src: src,
+
+	// // 			dst: "_doc/" + fileid + ".jpg",
+
+	// // 			overwrite: true,
+
+	// // 			width: '50%',
+
+	// // 			height: 'auto',
+
+	// // 			format: 'jpg',
+
+	// // 			quality: 10
+
+	// // 		},
+
+	// // 		function(e) {
+
+	// // 			//这里读取压缩后的图片转base64,数据库保存用
+
+	// // 			var reader = new plus.io.FileReader();
+
+	// // 			reader.onloadend = function(e) {
+
+	// // 				var strimg = e.target.result; //base64图片
+
+	// // 				pic = strimg;
+
+	// // 				// console.log(strimg);
+
+	// // 				// alert(strimg);// 在IOS苹果手机下测试这里是null, Android正常
+
+	// // 				document.getElementById("picShow").src = strimg;
+
+	// // 				// showImg2div(strimg);
+
+	// // 			};
+
+	// // 			// alert(e.target);
+
+	// // 			// alert(e.target.replace('file://',''));
+
+
+
+	// // 			reader.readAsDataURL(e.target.replace('file://',''));
+
+
+
+	// // 		},
+
+	// // 		function(err) {
+
+
+
+	// // 		}
+
+	// // 	);
+
+	// // }
+
+
+
+	// // // $('#cuanjdd').click(function () {
+
+	// // // 	//服务端接口路径
+
+	// // // 	var server = "http://vip.caixinan.com/User/uploadFile";
+
+	// // // 	//获取图片元素
+
+	// // // 	var files = document.getElementById('picShow');
+
+	// // // 	// 上传文件
+
+	// // // 	function upload(){
+
+	// // // 		console.log(files.src);
+
+	// // // 		var wt=plus.nativeUI.showWaiting();
+
+	// // // 		var task=plus.uploader.createUpload(server,
+
+	// // // 			{method:"POST"},
+
+	// // // 			function(t,status){ //上传完成
+
+	// // // 				alert(JSON.stringify(t));
+
+	// // // 				alert(JSON.stringify(status));
+
+	// // // 				if(status==200){
+
+	// // // 					alert("上传成功："+t.responseText);
+
+	// // // 					wt.close(); //关闭等待提示按钮
+
+	// // // 				}else{
+
+	// // // 					alert("上传失败："+status);
+
+	// // // 					wt.close();//关闭等待提示按钮
+
+	// // // 				}
+
+	// // // 			}
+
+	// // // 		);
+
+	// // // 		//添加其他参数
+
+	// // // 		task.addData("name","test");
+
+	// // // 		task.addFile(files.src,{key:"pic"});
+
+	// // // 		task.start();
+
+	// // // 	}
+
+	// // // 	upload();
+
+	// // // });
+
+	// // if(window.plus){
+
+	// // 	plusReady();
+
+	// // }else{
+
+	// // 	document.addEventListener("plusready",plusReady,false);
+
+	// // }
+
+	// // alert(navigator.userAgent);
+
+	// // console.log(navigator.userAgent)
+
+
+
+	// // // $(function () {
+
+
+
+
+
+
+
+	// // 	// function check_useragent()
+
+	// // 	// {
+
+	// // 	//     var browser = {
+
+	// // 	//         versions: function() {
+
+	// // 	//             var u = navigator.userAgent, app = navigator.appVersion;
+
+	// // 	// 			alert(u,app);
+
+	// // 	// 			console.log(u);
+
+	// // 	// 			console.log(app)
+
+	// // 	// 			console.log(navigator)
+
+	// // 	//             return {
+
+	// // 	//                 trident: u.indexOf('Trident') > -1, //IE内核
+
+	// // 	//                 presto: u.indexOf('Presto') > -1, //opera内核
+
+	// // 	//                 webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+
+	// // 	//                 gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+
+	// // 	//                 mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+
+	// // 	//                 ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+
+	// // 	//                 android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+
+	// // 	//                 iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+
+	// // 	//                 iPad: u.indexOf('iPad') > -1, //是否iPad
+
+	// // 	//                 webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+
+	// // 	//             };
+
+	// // 	//         }(),
+
+	// // 	//         language: (navigator.browserLanguage || navigator.language).toLowerCase()
+
+	// // 	//     }
+
+
+
+	// // 	//     if (browser.versions.ios) {
+
+	// // 	//         return true;
+
+	// // 	//     }
+
+	// // 	//     else if (browser.versions.android) {
+
+	// // 	//         return true;
+
+	// // 	//     }
+
+	// // 	//     var ua = navigator.userAgent.toLowerCase();
+
+	// // 	//     if(ua.match(/MicroMessenger/i)=="micromessenger") {
+
+	// // 	//          return false;
+
+	// // 	//     } else {
+
+	// // 	//         return false;
+
+	// // 	//     }
+
+
+
+	// // 	// }
+
+	// // 	// var zzz = check_useragent();
+
+	// // 	// console.log(zzz)
+
+	// // 	// alert(zzz)
+
+	// // 	// var fileArr = '';
+
+	// // 	// function showImage(file) {
+
+	// // 	// 	plus.io.resolveLocalFileSystemURL(file, function (url) {
+
+	// // 	// 		fileArr = url.toLocalURL();
+
+	// // 	// 		// alert(url.toLocalURL()+ "?version=" + new Date().getTime());
+
+	// // 	// 		// $("#pic_show").attr('src', url.toLocalURL()+ "?version=" + new Date().getTime()) ;
+
+	// // 	// 		// reads.readAsDataURL(url.toLocalURL());
+
+	// // 	// 		// reads.onload = function(e) {
+
+	// // 	// 			//图片路径设置为读取的图片
+
+
+
+	// // 	// 		// };
+
+	// // 	// 		// url.file(function (file) {
+
+	// // 	// 		// 	//读取完成
+
+	// // 	// 		// 	alert(JSON.stringify(file));
+
+	// // 	// 		// 	alert(file.fullPath);
+
+	// // 	// 		// 	$("#pic_show").attr('src', file.fullPath) ;
+
+	// // 	// 		// 	// document.getElementById("pic_show").src = url.toLocalURL();
+
+	// // 	// 		// });
+
+	// // 	// 	});
+
+	// // 	// }
+
+
+
+	// // 	// function createUpload() {
+
+	// // 	// 	alert(fileArr);
+
+
+
+	// // 	// 	alert(JSON.stringify($('[name=file]')[0].files[0]));
+
+	// // 	// 	var formData = new FormData();
+
+	// // 	// 	formData.append("pic",$('#upload')[0].files[0]);
+
+	// // 	// 	alert(JSON.stringify(formData));
+
+	// // 	// 	$.ajax({
+
+	// // 	// 		url:'/User/uploadFile', /*接口域名地址*/
+
+	// // 	// 		type:'post',
+
+	// // 	// 		data: formData,
+
+	// // 	// 		contentType: false,
+
+	// // 	// 		processData: false,
+
+	// // 	// 		success:function(res){
+
+	// // 	// 			alert(JSON.stringify(res));
+
+	// // 	// 			if(res.data["code"]==4){
+
+	// // 	// 				alert('成功');
+
+	// // 	// 			}else if(res.data["code"]=="err"){
+
+	// // 	// 				alert('失败');
+
+	// // 	// 			}else{
+
+	// // 	// 				alert(1);
+
+	// // 	// 				console.log(res);
+
+	// // 	// 			}
+
+	// // 	// 		}
+
+	// // 	// 	})
+
+	// // 		// var price = $('#price').val();
+
+	// // 		// var skaccount = $('#skaccount').val();
+
+	// // 		// var task = plus.uploader.createUpload("http://192.168.1.3/User/uploadFile",{method:"POST"});
+
+	// // 		// task.addFile(fileArr, {key:"pic"} );
+
+	// // 		// task.addEventListener( "statechanged", onStateChanged, false );
+
+	// // 		// task.start();
+
+	// // 	// }
+
+
+
+	// // 	// function onStateChanged( upload, status ) {
+
+	// // 	// 	alert(JSON.stringify(upload));
+
+	// // 	// 	if (status == 200 ) {
+
+	// // 	// 		// 上传完成
+
+	// // 	// 		alert(JSON.stringify(upload.getAllResponseHeaders()));
+
+	// // 	// 		alert( "Upload success: " + upload.getFileName() );
+
+	// // 	// 	}
+
+	// // 	// }
+
+
+
+	// // 	// // 扩展API加载完毕后调用onPlusReady回调函数
+
+	// // 	// document.addEventListener("plusready", onPlusReady, false);
+
+	// // 	// // 扩展API加载完毕，现在可以正常调用扩展API
+
+	// // 	// function onPlusReady() {
+
+	// // 	// 	console.log("plusready");
+
+	// // 	// }
+
+	// // 	// // 拍照
+
+	// // 	// function captureImage() {
+
+	// // 	// 	var cmr = plus.camera.getCamera();
+
+	// // 	// 	var res = cmr.supportedImageResolutions[0];
+
+	// // 	// 	var fmt = cmr.supportedImageFormats[0];
+
+	// // 	// 	console.log("Resolution: " + res + ", Format: " + fmt);
+
+	// // 	// 	cmr.captureImage(function (path) {
+
+	// // 	// 		alert("Capture image success: " + path);
+
+	// // 	// 		showImage(path);
+
+	// // 	// 	},
+
+	// // 	// 		function (error) {
+
+	// // 	// 			alert("Capture image failed: " + error.message);
+
+	// // 	// 		},
+
+	// // 	// 		{ resolution: res, format: fmt }
+
+	// // 	// 	);
+
+	// // 	// }
+
+
+
+
+
+	// // 	// $("#paizhao").click(function () {
+
+	// // 	// 	captureImage();
+
+	// // 	// })
+
+
+
+	// // 	// $("#pic").click(function () {
+
+	// // 	// 	$(".mask").show();
+
+	// // 	// })
+
+	// // 	// $(".mask").click(function () {
+
+	// // 	// 	$(".mask").hide();
+
+	// // 	// })
+
+
+
+	// // 	// $("#xiangche").click(function () {
+
+	// // 	// 	$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+	// // 	// 	$("#upload").on("change", function () {
+
+	// // 	// 		var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+	// // 	// 		if (objUrl) {
+
+	// // 	// 			$("#pic_show").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+
+
+	// // 	// 		}
+
+	// // 	// 		$(".mask").hide();
+
+	// // 	// 	});
+
+	// // 	// });
+
+	// // // });
+
+	// // function getObjectURL(file) {
+
+	// // 	var url = null;
+
+	// // 	if (window.createObjectURL != undefined) { // basic
+
+	// // 		url = window.createObjectURL(file);
+
+	// // 	} else if (window.URL != undefined) { // mozilla(firefox)
+
+	// // 		url = window.URL.createObjectURL(file);
+
+	// // 	} else if (window.webkitURL != undefined) { // webkit or chrome
+
+	// // 		url = window.webkitURL.createObjectURL(file);
+
+	// // 	}
+
+	// // 	return url;
+
+	// // }
+
+
+
+
+
+
+
+
+
+
+
+	// // $('#cuanjdd').click(function () {
+
+
+
+	// // 	// var icon = $('#icon').val();
+
+	// // 	var ewmclass = $('#ewmclass').val();
+
+	// // 	var price = $('#price').val();
+
+	// // 	var skaccount = $('#skaccount').val();
+
+	// // 	// var pic = $('#upload')[0].files[0];
+
+	// // 	var pic = document.getElementById('picShow').src;
+
+	// // 	// var file = new FormData();
+
+
+
+	// // 	// if(icon == ''){
+
+	// // 	//     msg_alert('没有上传二维码');
+
+	// // 	// 	return false;
+
+	// // 	// }
+
+
+
+	// // 	if ($("#checkedclass_bank").is(".mui-selected") == false) {
+
+	// // 		msg_alert('请勾选银行卡');
+
+	// // 		return false;
+
+	// // 	}
+
+
+
+	// // 	if (price == '') {
+
+	// // 		msg_alert('请输入收款金额');
+
+	// // 		return false;
+
+	// // 	}
+
+
+
+	// // 	if (skaccount == '') {
+
+	// // 		msg_alert('请输入收款账号');
+
+	// // 		return false;
+
+	// // 	}
+
+
+
+	// // 	// if (pic != "") {
+
+	// // 		// file.append("pic", pic);
+
+	// // 	// }
+
+
+
+	// // 	// file.append("ewm_class", 3)
+
+	// // 	// file.append("price", price);
+
+	// // 	// file.append("skaccount", skaccount);
+
+
+
+	// // 	data = {"ewm_class":3, "price":price, "skaccount":skaccount, "pic":pic.substr(pic.indexOf(',') + 1)};
+
+
+
+	// // 	// alert(JSON.stringify(data));
+
+	// // 	$("#cuanjdd").attr('disabled', true)
+
+	// // 	var wt=plus.nativeUI.showWaiting();
+
+
+
+	// // 	// $.post('/User/ewmup', data, function(res){
+
+	// // 	// 	alert(1);
+
+	// // 	// 	// alert(JSON.stringify(res));
+
+	// // 	// }, 'json');
+
+
+
+	// // 	$.ajax({
+
+	// // 		type: "POST",
+
+	// // 		url: '/User/ewmup',
+
+	// // 		data: data,
+
+	// // 		cache: false,
+
+	// // 		success: function (res) {
+
+
+
+	// // 			if (res.status == 1) {
+
+	// // 				layer.msg(res.message);  //,data.url);
+
+	// // 				wt.close();
+
+	// // 				// setTimeout(function (args) {
+
+	// // 					window.location.href = "{:U('User/index')}";
+
+	// // 				// }, 3000);
+
+	// // 			} else {
+
+	// // 				wt.close();
+
+	// // 				layer.msg(res.message);
+
+	// // 			}
+
+	// // 		}
+
+	// // 		// success:function (mes) {
+
+	// // 		//     if(mes.status == 1){
+
+	// // 		//         msg_alert(mes.message,mes.url);
+
+	// // 		//     }else{
+
+	// // 		//         msg_alert(mes.message);
+
+	// // 		//     }
+
+	// // 		// }
+
+	// // 	})
+
+
+
+
+
+	// // 	// $.ajax({
+
+	// // 	// 	url:'/User/ewmup',
+
+	// // 	//     type:'post',
+
+	// // 	//     data:{'icon':icon,'ewmclass':ewmclass,'price':price,'skaccount':skaccount},
+
+	// // 	//     datatype:'json',
+
+	// // 	//     success:function (mes) {
+
+	// // 	//         if(mes.status == 1){
+
+	// // 	//             msg_alert(mes.message,mes.url);
+
+	// // 	//         }else{
+
+	// // 	//             msg_alert(mes.message);
+
+	// // 	//         }
+
+	// // 	//     }
+
+	// // 	// })
+
+	// // })
+
+	// }
+
+	// function liu(){
+
+	// 	$(function() {
+
+	// 	$("#pic").click(function() {
+
+	// 		$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+	// 		$("#upload").on("change", function() {
+
+	// 			var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+	// 				if (objUrl) {
+
+	// 					$("#picShow").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+	// 				}
+
+	// 			});
+
+	// 		});
+
+	// 	});
+
+
+
+	// //建立一?可存取到?file的url
+
+	// 	function getObjectURL(file) {
+
+	// 		var url = null;
+
+	// 		if (window.createObjectURL != undefined) { // basic
+
+	// 			url = window.createObjectURL(file);
+
+	// 		} else if (window.URL != undefined) { // mozilla(firefox)
+
+	// 			url = window.URL.createObjectURL(file);
+
+	// 		} else if (window.webkitURL != undefined) { // webkit or chrome
+
+	// 			url = window.webkitURL.createObjectURL(file);
+
+	// 		}
+
+	// 		return url;
+
+	// 	}
+
+	// 	$('#cuanjdd').click(function () {
+
+
+
+	// 		// var icon = $('#icon').val();
+
+	// 		var ewmclass = $('#ewmclass').val();
+
+	// 		var price = $('#price').val();
+
+	// 		var skaccount = $('#skaccount').val();
+
+	// 		var pic = $('#upload')[0].files[0];
+
+	// 		// var pic = document.getElementById('picShow').src;
+
+	// 		var file = new FormData();
+
+	// 		// var file=new Array();
+
+
+
+	// 		// if(icon == ''){
+
+	// 		//     msg_alert('没有上传二维码');
+
+	// 		// 	return false;
+
+	// 		// }
+
+
+
+	// 		if ($("#checkedclass_bank").is(".mui-selected") == false) {
+
+	// 			msg_alert('请勾选银行卡');
+
+	// 			return false;
+
+	// 		}
+
+
+
+	// 		if (price == '') {
+
+	// 			msg_alert('请输入收款金额');
+
+	// 			return false;
+
+	// 		}
+
+
+
+	// 		if (skaccount == '') {
+
+	// 			msg_alert('请输入收款账号');
+
+	// 			return false;
+
+	// 		}
+
+
+
+	// 		if (pic != "") {
+
+	// 			file.append("pic", pic);
+
+	// 		}
+
+	// 		file.append("ewm_class", 3);
+
+	// 		file.append("price", price);
+
+	// 		file.append("skaccount", skaccount);
+
+
+
+	// 		console.log(file)
+
+
+
+	// 		$.ajax({
+
+	// 			type: "POST",
+
+	// 			url: '/User/ewmup',
+
+	// 			data: file,
+
+	// 			cache: false,
+
+	// 			processData : false,
+
+	// 			contentType : false,
+
+	// 			success: function (res) {
+
+
+
+	// 				if (res.status == 1) {
+
+	// 					layer.msg(res.message);  //,data.url);
+
+
+
+	// 					// setTimeout(function (args) {
+
+	// 						window.location.href = "{:U('User/index')}";
+
+	// 					// }, 3000);
+
+	// 				} else {
+
+
+
+	// 					layer.msg(res.message);
+
+	// 				}
+
+	// 			}
+
+	// 		})
+
+	// 	})
+
+	// }
+
+
+
+			var u = navigator.userAgent;
+
+
+
+			if(u.indexOf('Plus')>-1){
+
+				function plusReady(){
+
+		// 弹出系统选择按钮框
+
+		mui("body").on("tap","#pic",function(){
+
+			page.imgUp();
+
+		})
+
+
+
+		mui("body").on("tap",".mask",function(){
+
+			page.imgDown();
+
+		})
+
+
+
+		mui("body").on("tap","#paizhao",function(){
+
+			appendByCamera();
+
+		})
+
+
+
+		mui("body").on("tap","#xiangche",function(){
+
+			appendByGallery();
+
+		})
+
+
+
+	}
+
+	var page=null;
+
+	page={
+
+		imgUp:function(){
+
+			var m=this;
+
+			$(".mask").show();
+
+			// plus.nativeUI.actionSheet({cancel:"取消",buttons:[
+
+			// 	{title:"拍照"},
+
+			// 	{title:"从相册中选择"}
+
+			// ]}, function(e){//1 是拍照  2 从相册中选择
+
+			// 	switch(e.index){
+
+			// 		case 1:appendByCamera();break;
+
+			// 		case 2:appendByGallery();break;
+
+			// 	}
+
+			// });
+
+		},
+
+		imgDown:function(){
+
+			$(".mask").hide();
+
+		}
+
+		//摄像头
+
+	}
+
+
+
+	// 拍照添加文件
+
+	function appendByCamera(){
+
+		plus.camera.getCamera().captureImage(function(e){
+
+			plus.io.resolveLocalFileSystemURL(e, function(entry) {
+
+				var path = entry.toLocalURL();
+
+				entry.file( function(file){
+
+					ResizeImage(path, file.name);
+
+				} );
+
+			}, function(e) {
+
+				mui.toast("读取拍照文件错误：" + e.message);
+
+			});
+
+
+
+		});
+
+	}
+
+	// 从相册添加文件
+
+	function appendByGallery(){
+
+		plus.gallery.pick(function(path){
+
+			plus.io.resolveLocalFileSystemURL(path, function(entry) {
+
+				var path = entry.toLocalURL();
+
+				entry.file( function(file){
+
+					ResizeImage(path, file.name);
+
+				} );
+
+			}, function(e) {
+
+				mui.toast("读取照片文件错误：" + e.message);
+
+			});
+
+			// alert(path);
+
+			// ResizeImage(path);
+
+			// document.getElementById("picShow").src = path;
+
+		});
+
+	}
+
+	var pic='';
+
+	function ResizeImage(src, name) {
+
+		src = src.replace('file://','');
+
+		var fileid = name+'_thumb';//图片名称
+
+		plus.zip.compressImage({
+
+				src: src,
+
+				dst: "_doc/" + fileid + ".jpg",
+
+				overwrite: true,
+
+				width: '50%',
+
+				height: 'auto',
+
+				format: 'jpg',
+
+				quality: 10
+
+			},
+
+			function(e) {
+
+				//这里读取压缩后的图片转base64,数据库保存用
+
+				var reader = new plus.io.FileReader();
+
+				reader.onloadend = function(e) {
+
+					var strimg = e.target.result; //base64图片
+
+					pic = strimg;
+
+					// console.log(strimg);
+
+					// alert(strimg);// 在IOS苹果手机下测试这里是null, Android正常
+
+					document.getElementById("picShow").src = strimg;
+
+					// showImg2div(strimg);
+
+				};
+
+				// alert(e.target);
+
+				// alert(e.target.replace('file://',''));
+
+
+
+				reader.readAsDataURL(e.target.replace('file://',''));
+
+
+
+			},
+
+			function(err) {
+
+
+
+			}
+
+		);
+
+	}
+
+
+
+	// $('#cuanjdd').click(function () {
+
+	// 	//服务端接口路径
+
+	// 	var server = "http://vip.caixinan.com/User/uploadFile";
+
+	// 	//获取图片元素
+
+	// 	var files = document.getElementById('picShow');
+
+	// 	// 上传文件
+
+	// 	function upload(){
+
+	// 		console.log(files.src);
+
+	// 		var wt=plus.nativeUI.showWaiting();
+
+	// 		var task=plus.uploader.createUpload(server,
+
+	// 			{method:"POST"},
+
+	// 			function(t,status){ //上传完成
+
+	// 				alert(JSON.stringify(t));
+
+	// 				alert(JSON.stringify(status));
+
+	// 				if(status==200){
+
+	// 					alert("上传成功："+t.responseText);
+
+	// 					wt.close(); //关闭等待提示按钮
+
+	// 				}else{
+
+	// 					alert("上传失败："+status);
+
+	// 					wt.close();//关闭等待提示按钮
+
+	// 				}
+
+	// 			}
+
+	// 		);
+
+	// 		//添加其他参数
+
+	// 		task.addData("name","test");
+
+	// 		task.addFile(files.src,{key:"pic"});
+
+	// 		task.start();
+
+	// 	}
+
+	// 	upload();
+
+	// });
+
+	if(window.plus){
+
+		plusReady();
+
+	}else{
+
+		document.addEventListener("plusready",plusReady,false);
+
+	}
+
+
+
+	// $(function () {
+
+
+
+
+
+
+
+		// function check_useragent()
+
+		// {
+
+		//     var browser = {
+
+		//         versions: function() {
+
+		//             var u = navigator.userAgent, app = navigator.appVersion;
+
+		// 			alert(u,app);
+
+		// 			console.log(u);
+
+		// 			console.log(app)
+
+		// 			console.log(navigator)
+
+		//             return {
+
+		//                 trident: u.indexOf('Trident') > -1, //IE内核
+
+		//                 presto: u.indexOf('Presto') > -1, //opera内核
+
+		//                 webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+
+		//                 gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+
+		//                 mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+
+		//                 ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+
+		//                 android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+
+		//                 iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+
+		//                 iPad: u.indexOf('iPad') > -1, //是否iPad
+
+		//                 webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+
+		//             };
+
+		//         }(),
+
+		//         language: (navigator.browserLanguage || navigator.language).toLowerCase()
+
+		//     }
+
+
+
+		//     if (browser.versions.ios) {
+
+		//         return true;
+
+		//     }
+
+		//     else if (browser.versions.android) {
+
+		//         return true;
+
+		//     }
+
+		//     var ua = navigator.userAgent.toLowerCase();
+
+		//     if(ua.match(/MicroMessenger/i)=="micromessenger") {
+
+		//          return false;
+
+		//     } else {
+
+		//         return false;
+
+		//     }
+
+
+
+		// }
+
+		// var zzz = check_useragent();
+
+		// console.log(zzz)
+
+		// alert(zzz)
+
+		// var fileArr = '';
+
+		// function showImage(file) {
+
+		// 	plus.io.resolveLocalFileSystemURL(file, function (url) {
+
+		// 		fileArr = url.toLocalURL();
+
+		// 		// alert(url.toLocalURL()+ "?version=" + new Date().getTime());
+
+		// 		// $("#pic_show").attr('src', url.toLocalURL()+ "?version=" + new Date().getTime()) ;
+
+		// 		// reads.readAsDataURL(url.toLocalURL());
+
+		// 		// reads.onload = function(e) {
+
+		// 			//图片路径设置为读取的图片
+
+
+
+		// 		// };
+
+		// 		// url.file(function (file) {
+
+		// 		// 	//读取完成
+
+		// 		// 	alert(JSON.stringify(file));
+
+		// 		// 	alert(file.fullPath);
+
+		// 		// 	$("#pic_show").attr('src', file.fullPath) ;
+
+		// 		// 	// document.getElementById("pic_show").src = url.toLocalURL();
+
+		// 		// });
+
+		// 	});
+
+		// }
+
+
+
+		// function createUpload() {
+
+		// 	alert(fileArr);
+
+
+
+		// 	alert(JSON.stringify($('[name=file]')[0].files[0]));
+
+		// 	var formData = new FormData();
+
+		// 	formData.append("pic",$('#upload')[0].files[0]);
+
+		// 	alert(JSON.stringify(formData));
+
+		// 	$.ajax({
+
+		// 		url:'/User/uploadFile', /*接口域名地址*/
+
+		// 		type:'post',
+
+		// 		data: formData,
+
+		// 		contentType: false,
+
+		// 		processData: false,
+
+		// 		success:function(res){
+
+		// 			alert(JSON.stringify(res));
+
+		// 			if(res.data["code"]==4){
+
+		// 				alert('成功');
+
+		// 			}else if(res.data["code"]=="err"){
+
+		// 				alert('失败');
+
+		// 			}else{
+
+		// 				alert(1);
+
+		// 				console.log(res);
+
+		// 			}
+
+		// 		}
+
+		// 	})
+
+			// var price = $('#price').val();
+
+			// var skaccount = $('#skaccount').val();
+
+			// var task = plus.uploader.createUpload("http://192.168.1.3/User/uploadFile",{method:"POST"});
+
+			// task.addFile(fileArr, {key:"pic"} );
+
+			// task.addEventListener( "statechanged", onStateChanged, false );
+
+			// task.start();
+
+		// }
+
+
+
+		// function onStateChanged( upload, status ) {
+
+		// 	alert(JSON.stringify(upload));
+
+		// 	if (status == 200 ) {
+
+		// 		// 上传完成
+
+		// 		alert(JSON.stringify(upload.getAllResponseHeaders()));
+
+		// 		alert( "Upload success: " + upload.getFileName() );
+
+		// 	}
+
+		// }
+
+
+
+		// // 扩展API加载完毕后调用onPlusReady回调函数
+
+		// document.addEventListener("plusready", onPlusReady, false);
+
+		// // 扩展API加载完毕，现在可以正常调用扩展API
+
+		// function onPlusReady() {
+
+		// 	console.log("plusready");
+
+		// }
+
+		// // 拍照
+
+		// function captureImage() {
+
+		// 	var cmr = plus.camera.getCamera();
+
+		// 	var res = cmr.supportedImageResolutions[0];
+
+		// 	var fmt = cmr.supportedImageFormats[0];
+
+		// 	console.log("Resolution: " + res + ", Format: " + fmt);
+
+		// 	cmr.captureImage(function (path) {
+
+		// 		alert("Capture image success: " + path);
+
+		// 		showImage(path);
+
+		// 	},
+
+		// 		function (error) {
+
+		// 			alert("Capture image failed: " + error.message);
+
+		// 		},
+
+		// 		{ resolution: res, format: fmt }
+
+		// 	);
+
+		// }
+
+
+
+
+
+		// $("#paizhao").click(function () {
+
+		// 	captureImage();
+
+		// })
+
+
+
+		// $("#pic").click(function () {
+
+		// 	$(".mask").show();
+
+		// })
+
+		// $(".mask").click(function () {
+
+		// 	$(".mask").hide();
+
+		// })
+
+
+
+		// $("#xiangche").click(function () {
+
+		// 	$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+		// 	$("#upload").on("change", function () {
+
+		// 		var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+		// 		if (objUrl) {
+
+		// 			$("#pic_show").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+
+
+		// 		}
+
+		// 		$(".mask").hide();
+
+		// 	});
+
+		// });
+
+	// });
+
+	function getObjectURL(file) {
+
+		var url = null;
+
+		if (window.createObjectURL != undefined) { // basic
+
+			url = window.createObjectURL(file);
+
+		} else if (window.URL != undefined) { // mozilla(firefox)
+
+			url = window.URL.createObjectURL(file);
+
+		} else if (window.webkitURL != undefined) { // webkit or chrome
+
+			url = window.webkitURL.createObjectURL(file);
+
+		}
+
+		return url;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+	$('#cuanjdd').click(function () {
+
+
+
+		// var icon = $('#icon').val();
+
+		var ewmclass = $('#ewmclass').val();
+
+		var price = $('#price').val();
+
+		var skaccount = $('#skaccount').val();
+
+		// var pic = $('#upload')[0].files[0];
+
+		var pic = document.getElementById('picShow').src;
+
+		// var file = new FormData();
+
+
+
+		// if(icon == ''){
+
+		//     msg_alert('没有上传二维码');
+
+		// 	return false;
+
+		// }
+
+
+
+		if ($("#checkedclass_bank").is(".mui-selected") == false) {
+
+			msg_alert('请勾选银行卡');
+
+			return false;
+
+		}
+
+
+
+		if (price == '') {
+
+			msg_alert('请输入收款金额');
+
+			return false;
+
+		}
+
+
+
+		if (skaccount == '') {
+
+			msg_alert('请输入收款账号');
+
+			return false;
+
+		}
+
+
+
+		// if (pic != "") {
+
+			// file.append("pic", pic);
+
+		// }
+
+
+
+		// file.append("ewm_class", 3)
+
+		// file.append("price", price);
+
+		// file.append("skaccount", skaccount);
+
+
+
+		data = {"ewm_class":3, "price":price, "skaccount":skaccount, "pic":pic.substr(pic.indexOf(',') + 1)};
+
+
+
+		// alert(JSON.stringify(data));
+
+		$("#cuanjdd").attr('disabled', true)
+
+		var wt=plus.nativeUI.showWaiting();
+
+
+
+		// $.post('/User/ewmup', data, function(res){
+
+		// 	alert(1);
+
+		// 	// alert(JSON.stringify(res));
+
+		// }, 'json');
+
+
+
+		$.ajax({
+
+			type: "POST",
+
+			url: '/User/ewmup',
+
+			data: data,
+
+			cache: false,
+
+			success: function (res) {
+
+
+
+				if (res.status == 1) {
+
+					layer.msg(res.message);  //,data.url);
+
+					wt.close();
+
+					// setTimeout(function (args) {
+
+						window.location.href = "{:U('User/index')}";
+
+					// }, 3000);
+
+				} else {
+
+					wt.close();
+
+					layer.msg(res.message);
+
+				}
+
+			}
+
+			// success:function (mes) {
+
+			//     if(mes.status == 1){
+
+			//         msg_alert(mes.message,mes.url);
+
+			//     }else{
+
+			//         msg_alert(mes.message);
+
+			//     }
+
+			// }
+
+		})
+
+
+
+
+
+		// $.ajax({
+
+		// 	url:'/User/ewmup',
+
+		//     type:'post',
+
+		//     data:{'icon':icon,'ewmclass':ewmclass,'price':price,'skaccount':skaccount},
+
+		//     datatype:'json',
+
+		//     success:function (mes) {
+
+		//         if(mes.status == 1){
+
+		//             msg_alert(mes.message,mes.url);
+
+		//         }else{
+
+		//             msg_alert(mes.message);
+
+		//         }
+
+		//     }
+
+		// })
+
+	})
+
+			}else{
+
+				$(function() {
+
+		$("#pic").click(function() {
+
+			$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+			$("#upload").on("change", function() {
+
+				var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+					if (objUrl) {
+
+						$("#picShow").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+					}
+
+				});
+
+			});
+
+		});
+
+
+
+	//建立一?可存取到?file的url
+
+		function getObjectURL(file) {
+
+			var url = null;
+
+			if (window.createObjectURL != undefined) { // basic
+
+				url = window.createObjectURL(file);
+
+			} else if (window.URL != undefined) { // mozilla(firefox)
+
+				url = window.URL.createObjectURL(file);
+
+			} else if (window.webkitURL != undefined) { // webkit or chrome
+
+				url = window.webkitURL.createObjectURL(file);
+
+			}
+
+			return url;
+
+		}
+
+		$('#cuanjdd').click(function () {
+
+
+
+			// var icon = $('#icon').val();
+
+			var ewmclass = $('#ewmclass').val();
+
+			var price = $('#price').val();
+
+			var skaccount = $('#skaccount').val();
+
+			var pic = $('#upload')[0].files[0];
+
+			// var pic = document.getElementById('picShow').src;
+
+			var file = new FormData();
+
+			// var file=new Array();
+
+
+
+			// if(icon == ''){
+
+			//     msg_alert('没有上传二维码');
+
+			// 	return false;
+
+			// }
+
+
+
+			if ($("#checkedclass_bank").is(".mui-selected") == false) {
+
+				msg_alert('请勾选银行卡');
+
+				return false;
+
+			}
+
+
+
+			if (price == '') {
+
+				msg_alert('请输入收款金额');
+
+				return false;
+
+			}
+
+
+
+			if (skaccount == '') {
+
+				msg_alert('请输入收款账号');
+
+				return false;
+
+			}
+
+
+
+			if (pic != "") {
+
+				file.append("pic", pic);
+
+			}
+
+			file.append("ewm_class", 3);
+
+			file.append("price", price);
+
+			file.append("skaccount", skaccount);
+
+
+
+
+
+
+
+			$.ajax({
+
+				type: "POST",
+
+				url: '/User/ewmup',
+
+				data: file,
+
+				cache: false,
+
+				processData : false,
+
+				contentType : false,
+
+				success: function (res) {
+
+
+
+					if (res.status == 1) {
+
+						layer.msg(res.message);  //,data.url);
+
+
+
+						// setTimeout(function (args) {
+
+							window.location.href = "{:U('User/index')}";
+
+						// }, 3000);
+
+					} else {
+
+
+
+						layer.msg(res.message);
+
+					}
+
+				}
+
+			})
+
+		})
+
+			}
+
+
+
+</script>
+
+
+
+</html>

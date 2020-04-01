@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>个人资料</title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="__WCSS__/public.css">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<style>
+
+		.body{
+
+			line-height: px;
+
+		}
+
+		.mui-table-view-cell:after{
+
+			left: 0px;
+
+			background-color:#ccc;
+
+		}
+
+		.mui-table-view:before{
+
+			background-color:#ccc;
+
+		}
+
+
+
+		.header{
+
+			top:0;
+
+			box-shadow:0 0px 0px #ccc;
+
+			-webkit-box-shadow:0 0px 0px #ccc;
+
+		}
+
+		.h1{
+
+			font-family:'微软雅黑';
+
+		}
+
+		.ul{
+
+			margin-top:15%;
+
+			line-height:2em;
+
+			border-radius:5px;
+
+			background:rgba(255,255,255);
+
+			opacity: .9;
+
+		}
+
+		.p{
+
+			margin-left:10%;
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<header class="mui-bar mui-bar-nav header">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+			<h1 class="mui-title h1">个人资料</h1>
+
+	</header>
+
+	<div style="padding:30px 10px; ">
+
+		<ul class="mui-table-view ul" style="border-radius:5px">
+
+				<li class="mui-table-view-cell mui-collapse-content">
+
+					<a href="{:U('User/yinhangka')}" class="mui-navigate-right">
+
+					<p class="p">银行卡</p>
+
+					</a>
+
+				</li>
+
+		        <li class="mui-table-view-cell mui-collapse-content">
+
+		        	<a href="{:U('User/xinxi')}" class="mui-navigate-right">
+
+		        	<p class="p">个人信息</p>
+
+		        	</a>
+
+		        </li>
+
+				<li class="mui-table-view-cell mui-collapse-content">
+
+					<a href="{:U('User/password')}" class="mui-navigate-right">
+
+					<p class="p">修改密码</p>
+
+					</a>
+
+				</li>
+
+		</ul>
+
+	</div>
+
+
+
+
+
+</body>
+
+
+
+</html>

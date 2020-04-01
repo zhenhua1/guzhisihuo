@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>APP下载</title>
+
+    <link href="__WCSS__/download.css" rel="stylesheet"/>
+
+    <link href="__WCSS__/public.css" rel="stylesheet">
+
+	<link href="__WCSS__/mui.min.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+</head>
+
+<style>
+
+	.dow{
+
+		position: fixed;
+
+		width: 100%;
+
+		height: 100%;
+
+		z-index: 222;
+
+	}
+
+	.dow img{
+
+		display: block;
+
+		width: 100%;
+
+		height: 100%;
+
+		z-index: 222;
+
+	}
+
+</style>
+
+<body>
+
+	<header class="mui-bar mui-bar-nav header" style="box-shadow:none;">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+			<h1 class="mui-title h1">APP下载</h1>
+
+	</header>
+
+	<div class="bg">
+
+		<div class="top" style="margin-top: 80px">
+
+			<div class="img">
+
+				<img src="../Public/home/wap/images/P_logo.png" alt="">
+
+			</div>
+
+			<div class="">
+
+				<div class="ios-title">{$name}</div>
+
+				<span class="xingxi">— &nbsp 版本:1.0&nbsp&nbsp    大小:11.29M &nbsp—</span>
+
+			</div>
+
+		</div>
+
+		<div class="code">
+
+			<img src="{$urel}">
+
+			<div class="text">
+
+				——&nbsp手机扫描二维码&nbsp——
+
+			</div>
+
+		</div>
+
+		<div class="view ">
+
+				<div class="mui-button-row " id="user" style="display:none">
+
+					<a href="/Uploads/App/app.apk">
+
+						<button type="button"  onclick="return is_weixn()"  class="mui-btn mui-btn-danger install" id="submit" style="width:70%;background: #DD4F42; padding: 6px 12px; border:0; height:50px; border-radius: 25px">安装</button>
+
+					</a>
+
+
+
+				</div>
+
+				<div class="mui-button-row user11" style="display:none">
+
+					<a href="https://www.wyuq.com/supersign/OKRQ" style="display:block">
+
+						<button type="button"  class="mui-btn mui-btn-danger install" id="submit" style="width:70%;background: #DD4F42; font-size: 0.9rem; padding: 2px 12px; border:0; height:50px; border-radius: 25px; box-shadow: 1px 1px 1px 1px #b96635;">安装</button>
+
+					</a>
+
+				</div>
+
+			<div class="ios-type ios" style="margin-bottom: 50px; display:none" >
+
+				<span> 适用于iOS设备   /  企业版  </span>
+
+			</div>
+
+			<div class="ios-type Android" style="margin-bottom: 50px;display:none" >
+
+				<span> 适用于Android设备 </span>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<div class="dow" style="display:none">
+
+		<img src="../Public/home/wap/images/dow.png">
+
+
+
+	</div>
+
+</body>
+
+<script>
+
+	$(document).ready(function(){
+
+		var u = navigator.userAgent, app = navigator.appVersion;
+
+	    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+
+	    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+	    if (isAndroid) {
+
+	    	$('#user').show();
+
+	    	$('.Android').show();
+
+
+
+	    }
+
+	    if (isIOS) {
+
+	        $('.user11').show();
+
+	        $('.ios').show();
+
+
+
+
+
+	    }
+
+
+
+	})
+
+	function is_weixn(){
+
+	    var ua = navigator.userAgent.toLowerCase();
+
+	    if(ua.match(/MicroMessenger/i)=="micromessenger" && ua.match(/Android/i)=="android") {
+
+	        $('.dow').fadeIn();
+
+	        return false;
+
+	    }
+
+	}
+
+</script>
+
+</html>

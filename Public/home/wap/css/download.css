@@ -1,0 +1,162 @@
+.bg{
+
+	position: absolute;
+
+	width: 100%;
+
+	height:100%;
+
+    height: 60%;
+
+    text-align: center;
+
+}
+
+.img{
+
+    width: 120px;
+
+    height: 120px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    margin: 10% auto;
+
+}
+
+.img img{
+
+	width: 100%;
+
+	height: 100%;
+
+	display: block;
+
+    border-radius: 30%;
+
+}
+
+.ios-title {
+
+    font-size: 22px;
+
+    color: #fff;
+
+    margin-top: 15px;
+
+    font-family: cursive;
+
+}
+
+.xingxi{
+
+	margin-top: 10px;
+
+	color: #fff;
+
+}
+
+.code{
+
+	border-radius: 5px;
+
+    background-color: #fff;
+
+    width: 215px;
+
+    height: 240px;
+
+    top: 40%;
+
+    margin: 0 auto;
+
+    margin-top: 40px;
+
+    border-bottom-right-radius: 15%;
+
+    border-bottom-left-radius: 15%;
+
+}
+
+.code .text{
+
+	font-size: 14px;
+
+	color: #555;
+
+}
+
+.code img {
+
+    width: 180px;
+
+    height: 180px;
+
+    margin-top: 20px;
+
+    background: #eee;
+
+}
+
+.view{
+
+	margin-top: 10px;
+
+}
+
+.view .click a{
+
+	text-decoration: none;
+
+	display: inline-block;
+
+	border-radius: 5px;
+
+    background: #343434;
+
+    font-size: 18px;
+
+    width: 5rem;
+
+    padding: 5px;
+
+    color: #fff;
+
+    font-size: 16px;
+
+}
+
+.ios-type{
+
+	color: #fff;
+
+    height: 40px;
+
+    margin-top: 10px;
+
+    margin-bottom: 30px;
+
+}
+
+.ios-type span{
+
+	border: 1px solid #343434;
+
+    border-radius: 5px;
+
+    margin: 10px 0px;
+
+    height: 32px;
+
+    display: inline-block;
+
+    line-height: 30px;
+
+    color: #fff;
+
+    padding: 0px 10px;
+
+}
+

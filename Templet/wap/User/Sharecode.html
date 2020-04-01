@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-CN">
+<header>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>分享好友</title>
+    <link rel="stylesheet" href="__WCSS__/style.css" />
+    <link rel="stylesheet" href="__WCSS__/meCen.css" />
+    <link rel="stylesheet" href="__WCSS__/mui.min.css" />
+    <link rel="stylesheet" href="__WCSS__/public.css" />
+    <script type="text/javascript" src="__WJS__/jquery1.11.1.min.js"></script>
+    <script type="text/javascript" src="__COM__/layer/layer.js"></script>
+    <script type="text/javascript" src="__COM__/js/index.js" ></script>
+	<script type="text/javascript" src="__WCSS__/canvas/jquery.js"></script>
+    <script type="text/javascript" src="/Public/home/wap/js/mui.min.js"></script>
+</header>
+<body>
+
+    <div class="banner_light"></div>
+
+    <div class="header">
+        <a class="header_l mui-action-back mui-icon mui-icon-left-nav mui-pull-left"  style="width:33.3%;line-height: 50px;padding-left: 10px;" href="javascript:history.back(-1)"></a>
+	    <div class="header_c" style="width:33.3%;"><h2  style="font-size:14px;line-height: 40px;">分享好友</h2></div>
+	</div>
+
+    <div class="big_width80" style="z-index: 2;position:relative;text-align: center">
+	    <div class="qrCodeGro qrCodeGroa" style="margin-top: 80px;margin: 0 auto">
+	     	<img src="{$urel}">
+	     	<p class="mt40" style="font-size:12px;color:#ffffff;">扫描二维码即可分享好友哟</p>
+	    </div>
+	    <div class="fxfuzanj" style="margin-top:0px;">
+            <span hidden id="txt">{$aurl}</span>
+            <a href="javascript:void(0)"  onclick="copyUrl();" style="text-decoration:none;font-size:12px;">复制推广链接</a>
+        </div>
+	</div>
+
+    <script type="text/javascript">
+        mui.init({
+            gestureConfig: {
+                longtap: true   //默认为 false, 长按事件
+            }
+        });
+
+        mui.plusReady(function() {
+            document.addEventListener('longtap', function(e) {
+                var target = e.target;
+
+                var bts = [{
+                    title: "保存到手机"
+                }];
+
+                /**
+                 * actionSheet：弹出系统选择按钮框
+                 */
+                plus.nativeUI.actionSheet({
+                    cancel: "取消",
+                    buttons: bts
+                }, function(e) {
+
+                    if(e.index > 0){
+                        saveImage(target)
+                    }
+                });
+
+            });
+        });
+
+        /**
+         * 1. 获取图片的链接
+         * 2. 创建下载并下载图片
+         * 3. 保存至相册
+         */
+        function saveImage(target) {
+            var imgUrl = target.src;
+            var timestamp = (new Date()).valueOf();
+            var downLoader = plus.downloader.createDownload(imgUrl, {
+                method: 'GET',
+                filename: '_downloads/image/' + timestamp + '.png'
+            }, function(download, status) {
+                var fileName = download.filename;
+                /**
+                 * 保存至本地相册
+                 */
+                plus.gallery.save(fileName, function() {
+                    mui.toast("保存成功");
+
+                });
+            });
+
+            /**
+             * 开始下载任务
+             */
+            try{
+                downLoader.start();
+            }catch(e){
+                //TODO handle the exception
+                mui.toast("请长按图片保存");
+            }
+        }
+
+        function copyUrl()
+        {
+            var txt=$("#txt").text();
+            copy(txt);
+        }
+
+        function copy(message) {
+            var input = document.createElement("input");
+            input.value = message;
+            document.body.appendChild(input);
+            input.select();
+            input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+            document.body.removeChild(input);
+            msg_alert("复制成功");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>公告</title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet"/>
+
+	<link href="__WCSS__/public.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<style>
+
+		.body{
+
+			line-height: px;
+
+		}
+
+		.mui-table-view-cell:after{
+
+			left: 0px;
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:before{
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:after{
+
+			background-color:#292828;
+
+		}
+
+		.header{
+
+			background:#1f253d;
+
+			top:0;
+
+			box-shadow:0 0px 0px #ccc;
+
+			-webkit-box-shadow:0 0px 0px #ccc;
+
+		}
+
+		.h1{
+
+			font-family:'微软雅黑';
+
+		}
+
+		.ul{
+
+			margin-top: 70px;
+
+			padding: 0 10px;
+
+			background: #ffffff;
+
+			opacity: .9;
+
+			line-height:2em;
+
+			position: relative;
+
+			z-index: 2;
+
+			border-radius:4px;
+
+		}
+
+		.p{
+
+
+
+			font-family:'微软雅黑';
+
+			color:#000 !important;
+
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+		<div class="banner_light"></div>
+
+	<header class="mui-bar mui-bar-nav header">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+			<h1 class="mui-title h1">公告</h1>
+
+	</header>
+
+		<div style="padding: 10px">
+
+				<ul class="mui-table-view ul">
+
+					<volist name="list" id="data">
+
+					<li class="mui-table-view-cell mui-collapse-content">
+
+						<a href="{:U('User/newsList',array('id'=>$data['id']))}" class="mui-navigate-right">
+
+							<p class="p">{$data['title']}</p>
+
+						</a>
+
+					</li>
+
+				</volist>
+
+			</ul>
+
+		</div>
+
+			<!--<notempty name="table_data_page">
+
+                 <ul style="color:#ffffff;">{$table_data_page}</ul>
+
+            </notempty>-->
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,78 @@
+<div class="navbar-container" id="navbar-container">
+
+				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+					<span class="sr-only">Toggle sidebar</span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+				</button>
+
+				<!-- /section:basics/sidebar.mobile.toggle -->
+				<div class="navbar-header pull-left">
+					<!-- #section:basics/navbar.layout.brand -->
+					<a href="index.html" class="navbar-brand">
+						<small>
+							<img src="__WCSS__/assets/avatars/logo.png" alt="" />
+						</small>
+					</a>
+				</div>
+
+				<div class="navbar-buttons navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+
+						
+
+						<!-- #section:basics/navbar.user_menu -->
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="../Public/home/wap/images/logoer.png" alt="Jason's Photo" />
+								<span class="user-info">
+									欢迎您<br />
+									<?php echo session('account'); ?>
+								</span>
+
+								<i class="ace-icon fa fa-caret-down"></i>
+							</a>
+
+							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-cog"></i>
+										邀请码
+										{$list.u_yqm}
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-user"></i>
+										普通会员V1
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="JavaScript:" onclick="loginout()">
+										<i class="ace-icon fa fa-power-off"></i>
+										登出
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<!-- /section:basics/navbar.user_menu -->
+					</ul>
+				</div>
+
+				<!-- /section:basics/navbar.dropdown -->
+			</div><!-- /.navbar-container -->
+
+			<script type="text/javascript">
+	function loginout(){
+		window.location.href="{:U('User/Loginout')}";
+	}
+ </script>

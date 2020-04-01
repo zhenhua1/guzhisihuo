@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <title>
+            个人资料
+        </title>
+        <meta name="description" content="Restyling jQuery UI Widgets and Elements"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <link rel="stylesheet" href="__WCSS__/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="__WCSS__/assets/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="__WCSS__/assets/css/ace-fonts.css" />
+        <link rel="stylesheet" href="__WCSS__/assets/css/ace.min.css" id="main-ace-style"
+        />
+        <!--[if lte IE 9]>
+            <link rel="stylesheet" href="__WCSS__/assets/css/ace-part2.min.css" />
+        <![endif]-->
+        <!--[if lte IE 9]>
+            <link rel="stylesheet" href="__WCSS__/assets/css/ace-ie.min.css" />
+        <![endif]-->
+        <script src="__WCSS__/assets/js/ace-extra.min.js">
+        </script>
+        <!--[if lte IE 8]>
+            <script src="__WCSS__/assets/js/html5shiv.min.js">
+            </script>
+            <script src="__WCSS__/assets/js/respond.min.js">
+            </script>
+        <![endif]-->
+    </head>
+    
+    <body class="no-skin">
+        <!-- #section:basics/navbar.layout -->
+        <div id="navbar" class="navbar navbar-default">
+            <include file="pc/top" />
+        </div>
+        <!-- /section:basics/navbar.layout -->
+        <div class="main-container" id="main-container">
+            <!-- #section:basics/sidebar -->
+            <div id="sidebar" class="sidebar responsive">
+                <include file="pc/nav" />
+            </div>
+            <!-- /section:basics/sidebar -->
+            <div class="main-content">
+                <!-- #section:basics/content.breadcrumbs -->
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="ace-icon fa fa-home home-icon">
+                            </i>
+                            <a href="#">
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                个人资料
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.breadcrumb -->
+                    <!-- #section:basics/content.searchbox -->
+                   
+                    <!-- /.nav-search -->
+                </div>
+                <!-- /section:basics/content.breadcrumbs -->
+                <div class="page-content">
+                    <!-- /section:settings.box -->
+                    <div class="page-content-area">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+                                <div class="tabbable">
+                                    <!-- #section:pages/faq -->
+                                    <ul class="nav nav-tabs padding-18 tab-size-bigger" id="myTab">
+                                       <li class="active">
+                                            <a data-toggle="tab" href="#faq-tab-1">
+                                                <i class="orange ace-icon fa fa-credit-card bigger-120">
+                                                </i>
+                                                银行卡
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#faq-tab-2">
+                                                <i class="green ace-icon fa fa-user bigger-120">
+                                                </i>
+                                                个人信息
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#faq-tab-3">
+                                                <i class="blue ace-icon fa fa-question-circle bigger-120">
+                                                </i>
+                                                修改密码
+                                            </a>
+                                        </li>
+                                       
+                                        <!-- /.dropdown -->
+                                    </ul>
+                                    <!-- /section:pages/faq -->
+                                    <div class="tab-content no-border padding-24">
+                                        <div id="faq-tab-1" class="tab-pane fade in active">
+                                            <h4 class="blue">
+                                                <i class="ace-icon fa fa-check bigger-110">
+                                                </i>
+                                                已绑定的银行卡
+                                            </h4>
+                                            <div class="space-8">
+                                            </div>
+                                            <div id="faq-list-1" class="panel-group accordion-style1 accordion-style2">
+                                                <foreach name="clist" item="v">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <a href="#faq-1-3" data-parent="#faq-list-1" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                            <i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down"
+                                                            data-icon-show="ace-icon fa fa-chevron-left">
+                                                            </i>
+                                                            <i class="ace-icon fa fa-credit-card bigger-130">
+                                                            </i>
+                                                            &nbsp;  所属银行:{$v.bankname}&nbsp;&nbsp; 持卡人:{$v.name}&nbsp;&nbsp; 银行卡号:{$v.banknum}&nbsp;&nbsp;
+                                                        </a>
+                                                    </div>
+                                                    <div class="panel-collapse collapse" id="faq-1-3">
+                                                        <div class="panel-body">
+                                                            所属银行:{$v.bankname}&nbsp;&nbsp; 持卡人:{$v.name}&nbsp;&nbsp; 银行卡号:{$v.banknum}&nbsp;&nbsp;
+                                                                <button type="button" class="button" onclick="delcard({$v.id})">
+                                                                    删除
+                                                                </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </foreach>
+
+
+                                      
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" style="padding: 10px;text-align: left;">
+                                                        <a href="#faq-1-3" >
+                                                        
+                                                         <form class="form-horizontal" role="form" name="AddUser" action="{:U('User/set_addcard')}"
+																id="registerForm">
+																    <!-- #section:elements.form -->
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+																            所属银行：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="text" id="index_username" name="bankname" placeholder="所属银行"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																            持卡人：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="text" id="form-field-1-1" name="name" value="" placeholder="持卡人"
+																            class=" col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <!-- /section:elements.form -->
+																    <div class="space-4">
+																    </div>
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">
+																            银行卡号：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="password" name="banknum" id="form-field-2" placeholder="银行卡号"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <div class="space-4">
+																    </div>
+																    <div class="clearfix form-actions">
+																        <div class="col-md-offset-3 col-md-9">
+																            <button class="btn btn-info" type="button" id="submit" 
+																            onclick="addnow()"
+																            <?php if($list[ 'rz_st']==1){echo "disabled='disabled'";}?>
+																                
+																            <i class="ace-icon fa fa-check bigger-110"></i>
+																                立即提交
+																            </button>
+																           
+																        </div>
+																    </div>
+																</form>
+                                                        </a>
+                                                    </div>
+                                                <script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js">
+                                                </script>
+                                                <script type="text/javascript" src="__COM__/layer/layer.js">
+                                                </script>
+                                                <script type="text/javascript">
+                                                    function addnow() {
+                                                        var thisform = document.forms['AddUser'];
+                                                        var bankname = thisform.bankname.value;
+                                                        var name = thisform.name.value;
+                                                        var banknum = thisform.banknum.value;
+
+                                                        if (bankname == '' || bankname == null) {
+                                                            layer.msg('请输入所属银行');
+                                                            return false;
+                                                        }
+                                                        if (name == '' || name == null) {
+                                                            layer.msg('请输入持卡人');
+                                                            return false;
+                                                        }
+                                                        if (banknum == '' || banknum == null) {
+                                                            layer.msg('请输入银行卡号');
+                                                            return false;
+                                                        }
+
+                                                        var post_url = $("form[name='AddUser']").attr('action');
+                                                        var post_data = $("form[name='AddUser']").serialize();
+                                                        $("#submit").attr('disabled', true); 
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: post_url,
+                                                            data: post_data,
+                                                            dataType: "json",
+                                                            success: function(data) {
+                                                                if (data.status == 1) {
+                                                                    layer.msg(data.msg); //,data.url);
+                                                                    setTimeout(function(args) {
+                                                                        window.location.href = "{:U('User/yinhangka')}";
+                                                                    },
+                                                                    3000);
+                                                                } else {
+                                                                    layer.msg(data.msg);
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+                                                </div>
+                                        
+                                                
+                                            </div>
+                                        </div>
+                                        <div id="faq-tab-2" class="tab-pane fade">
+                                            <h4 class="blue">
+                                                <i class="green ace-icon fa fa-user bigger-110">
+                                                </i>
+                                                个人信息
+                                            </h4>
+                                            <div class="space-8">
+                                            </div>
+                                            <div id="faq-list-2" class="panel-group accordion-style1 accordion-style2">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <a href="#faq-2-1" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                         <form class="form-horizontal" role="form" name="AddUsers" action="{:U('User/set_info')}" id="registerForm">
+																    <!-- #section:elements.form -->
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+																            用户名：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="text"  name="username" value="{$list['username']}" readonly='readonly'
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																            手机号：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="number" name="mobile" maxlength="11"  value="{$list['mobile']}"  readonly='readonly' placeholder="手机号"
+																            class=" col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <!-- /section:elements.form -->
+																    <div class="space-4">
+																    </div>
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">
+																            姓名：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="text"  name="truename" value="{$list['truename']}" <?php if($list['rz_st']==1){echo "readonly='readonly'";}?>placeholder="姓名"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+																    <div class="space-4">
+																    </div>
+                                                                     <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																            电子邮箱：
+																        </label>
+																        <div class="col-sm-9">
+																         <input type="text"  name="email" value="{$list['email']}"   
+																         <?php if($list['rz_st']==1)
+																         {echo "readonly='readonly'";
+																         }?>  
+																         placeholder="电子邮箱"  class=" col-xs-10 col-sm-5" />
+																        </div>
+																    </div>
+
+																     <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																            QQ：
+																        </label>
+																        <div class="col-sm-9">
+																         <input type="text" name="userqq" value="{$list['userqq']}" class=" col-xs-10 col-sm-5"  <?php if($list['rz_st']==1){echo "readonly='readonly'";}?> placeholder="QQ"   />
+																        </div>
+																    </div>
+
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																           微信：
+																        </label>
+																        <div class="col-sm-9">
+																         <input type="text" name="wx_no" value="{$list['wx_no']}" class=" col-xs-10 col-sm-5"  <?php if($list['rz_st']==1){echo "readonly='readonly'";}?>   placeholder="微信"   
+																        />
+																        </div>
+																    </div>
+
+																   <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																          支付宝：
+																        </label>
+																        <div class="col-sm-9">
+																         <input type="text"  name="alipay" value="{$list['alipay']}" class=" col-xs-10 col-sm-5"   <?php if($list['rz_st']==1){echo "readonly='readonly'";}?>  placeholder="支付宝"  
+																        />
+																        </div>
+																    </div>
+
+																    <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">
+																          身份证：
+																        </label>
+																        <div class="col-sm-9">
+																         <input type="text"  name="usercard"  value="{$list['usercard']}" class=" col-xs-10 col-sm-5"  <?php if($list['rz_st']==1){echo "readonly='readonly'";}?>  placeholder="身份证"
+																        />
+																        </div>
+																    </div>
+
+
+																    <div class="clearfix form-actions">
+																        <div class="col-md-offset-3 col-md-9">
+																            <button class="btn btn-info" type="button" id="submit"  onclick="setinfo()"  <?php if($list['rz_st']==1){echo "disabled='disabled'";}?>>
+																                
+																                <i class="ace-icon fa fa-check bigger-110">
+																                </i>
+																                立即提交
+																            </button>
+																            &nbsp; &nbsp; &nbsp;
+																           
+																        </div>
+																    </div>
+																</form>
+
+																<script type="text/javascript">
+
+    function setinfo(){
+        //验证注册
+        var thisform=document.forms['AddUsers'];
+		var   email_reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+        var   username=thisform.username.value;
+        var   mobile=thisform.mobile.value;
+        var   truename=thisform.truename.value;
+        var   email=thisform.email.value;
+        var   userqq=thisform.userqq.value;
+        var   wx_no=thisform.wx_no.value;
+        var   usercard=thisform.usercard.value;
+
+        if(truename=='' || truename==null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+		if(email=='' || email==null){
+            layer.msg('请输入邮箱');
+            return false;
+        }
+		if(!email_reg.test(email)){
+			layer.msg('邮箱格式不正确');
+            return false;
+		}
+		if(userqq=='' || userqq==null){
+            layer.msg('请输入QQ');
+            return false;
+        }
+		if(wx_no=='' || wx_no==null){
+            layer.msg('请输入微信');
+            return false;
+        }
+		if(usercard=='' || usercard==null){
+            layer.msg('请输入身份证号');
+            return false;
+        }
+
+        var post_url = $("form[name='AddUsers']").attr('action');
+        var post_data= $("form[name='AddUsers']").serialize();
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            data:post_data,
+            dataType: "json",
+            success: function(data){
+                if(data.status==1){
+                    layer.msg(data.msg);  //,data.url);
+					setTimeout(function (args) {
+						window.location.href = "{:U('User/index')}";
+					}, 3000); 
+                }else{
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    }
+
+
+</script>	
+                                                        </a>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="faq-tab-3" class="tab-pane fade">
+                                            <h4 class="blue">
+                                                <i class="orange ace-icon fa fa-credit-card bigger-110">
+                                                </i>
+                                                修改密码
+                                            </h4>
+                                            <div class="space-8">
+                                            </div>
+                                            <div id="faq-list-3" class="panel-group accordion-style1 accordion-style2">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <a href="#faq-3-1" data-parent="#faq-list-3" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                           <form class="form-horizontal" role="form"  name="AddUserss" action="{:U('User/set_password')}">
+																
+															
+
+																 <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">
+																           请输入手机号：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="number" name="moblie" placeholder="请输入手机号"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																   </div>
+
+																 <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">
+																           请输入密码：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="password" name="password" placeholder="请输入密码"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																   </div>
+																
+																
+																 <div class="form-group">
+																        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">
+																           请确认密码：
+																        </label>
+																        <div class="col-sm-9">
+																            <input type="password"   name="c_password" placeholder="请确认密码"
+																            class="col-xs-10 col-sm-5" />
+																        </div>
+																   </div>
+
+
+
+																  <div class="clearfix form-actions">
+																        <div class="col-md-offset-3 col-md-9">
+																            <button class="btn btn-info" type="button" id="submit"  onclick="setps()">
+																                <i class="ace-icon fa fa-check bigger-110">
+																                </i>
+																                修改
+																            </button>
+																         
+																        </div>
+																    </div>
+																		
+																	
+															</form>
+				<script type="text/javascript">
+
+    function setps(){
+        var thisform=document.forms['AddUserss'];
+		var   moblie=thisform.moblie.value;
+        var   password=thisform.password.value;       
+        var   c_password=thisform.c_password.value;
+
+		if(password=='' || password==null){
+            layer.msg('请输入密码');
+            return false;
+        }
+		if(c_password=='' || c_password==null){
+            layer.msg('请再次输入密码');
+            return false;
+        }
+		if(password != c_password){
+            layer.msg('两次密码不一致');
+            return false;
+        }
+		
+        var post_url = $("form[name='AddUserss']").attr('action');
+        var post_data= $("form[name='AddUserss']").serialize();
+		$("#submit").attr('disabled',true)
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            data:post_data,
+            dataType: "json",
+            success: function(data){
+                if(data.status==1){
+                    layer.msg(data.msg);  //,data.url);
+					setTimeout(function (args) {
+						window.location.href = "{:U('User/ziliao')}";
+					}, 3000); 
+                }else{
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    }
+
+</script>	
+                                                        </a>
+                                                    </div>
+                                                    
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                                <!-- PAGE CONTENT ENDS -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.page-content-area -->
+                </div>
+                <!-- /.page-content -->
+            </div>
+            <!-- /.main-content -->
+            
+        </div>
+        <!-- /.main-container -->
+        <!-- basic scripts -->
+        <!--[if !IE]> -->
+            <script type="text/javascript">
+                window.jQuery || document.write("<script src='__WCSS__/assets/js/jquery.min.js'>" + "<" + "/script>");
+            </script>
+            <!-- <![endif]-->
+            <!--[if IE]>
+                <script type="text/javascript">
+                    window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>" + "<" + "/script>");
+                </script>
+            <![endif]-->
+            <script type="text/javascript">
+                if ('ontouchstart' in document.documentElement) document.write("<script src='__WCSS__/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+            </script>
+            <script src="__WCSS__/assets/js/bootstrap.min.js">
+            </script>
+            <!-- page specific plugin scripts -->
+            <!-- ace scripts -->
+            <script src="__WCSS__/assets/js/ace-elements.min.js">
+            </script>
+            <script src="__WCSS__/assets/js/ace.min.js">
+            </script>
+    </body>
+
+</html>

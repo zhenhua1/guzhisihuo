@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>提现管理</title>
+		<meta name="description" content="Restyling jQuery UI Widgets and Elements" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace.min.css" id="main-ace-style" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+		<script src="__WCSS__/assets/js/ace-extra.min.js"></script>
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			.CSSearchTbl{ border:1px #008CD4 solid;}
+			.CSSearchTbl thead{}
+			.CSSearchTbl thead tr{}
+			.CSSearchTbl thead tr th{  text-align:left; padding-left:10px;}
+			.CSSearchTbl tbody{}
+			.CSSearchTbl tbody tr{}
+			.CSSearchTbl tbody tr td{  padding: 10px;}
+			.CSSearchTbl tbody tr td.right{ text-align: left;}
+			.CSSearchTbl tbody tr td.left{ text-align: right;}
+			.table-responsive{ display: none;}
+		</style>
+	</head>
+
+	<body class="no-skin">
+		<!-- #section:basics/navbar.layout -->
+		<div id="navbar" class="navbar navbar-default">
+            <include file="pc/top" />
+		</div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
+
+		 <!-- #section:basics/sidebar -->
+            <div id="sidebar" class="sidebar responsive">
+                <include file="pc/nav" />
+            </div>
+            <!-- /section:basics/sidebar -->
+			<div class="main-content">
+				<div class="breadcrumbs" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">提现管理</a>
+						</li>
+						
+					</ul><!-- /.breadcrumb -->
+
+					
+				</div>
+				<div class="page-content">
+<h4 class="pink">
+									<i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
+									<a href="{:U('Withdraw/tixian')}" role="button" class="blue" data-toggle="modal">申请提现</a>
+								</h4>
+					<!-- /section:settings.box -->
+					<div class="page-content-area">
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									<div class="col-xs-12">
+										<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													
+													<th>提现方式</th>
+													<th>金额</th>
+													<th>
+														提现时间
+													</th>
+													
+												</tr>
+											</thead>
+
+											<tbody>
+												<foreach name = 'relist' item ='info'>
+		
+			
+			
+												<tr>
+
+													<td>
+														<?php echo $info['way'];?>提现
+													</td>
+													<td>-<?php echo $info['price'];?></td>
+										
+													<td><?php echo date("Y-m-d H:i",$info['addtime']);?></td>
+
+											
+												</tr>
+                                       </foreach>
+												
+
+												
+											</tbody>
+										</table>
+									</div><!-- /.span -->
+								</div><!-- /.row -->
+
+							
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+			
+			
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__WCSS__/assets/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='__WCSS__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__WCSS__/assets/js/bootstrap.min.js"></script>
+
+		<script src="__WCSS__/assets/js/jquery.dataTables.min.js"></script>
+		<script src="__WCSS__/assets/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+		<script src="__WCSS__/assets/js/ace-elements.min.js"></script>
+		<script src="__WCSS__/assets/js/ace.min.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+
+				$(".tbl-search").click(function(){
+					$(".table-responsive").slideDown("fast");
+				})
+
+				var oTable1 = 
+				$('#sample-table-2')
+				.dataTable( {
+					bAutoWidth: false,
+					bInfo:flase,
+					"aoColumns": [
+					  { "bSortable": false },
+					  null, 
+					  null,
+					  null,
+					  null, 
+					  null,
+					  { "bSortable": false },
+					  null,
+					  { "bSortable": false }
+					],
+					"aaSorting": [],
+			    } );
+			
+				$(document).on('click', 'th input:checkbox' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+				});
+
+
+				
+			
+			})
+
+		</script>
+	</body>
+</html>

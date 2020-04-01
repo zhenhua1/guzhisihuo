@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title></title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet"/>
+
+	<link href="__WCSS__/public.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<style>
+
+
+
+		.mui-table-view-cell:after{
+
+			left: 0px;
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:before{
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:after{
+
+			background-color:#292828;
+
+		}
+
+		.header{
+
+			background:#1f253d;
+
+			top:0;
+
+			box-shadow:0 0px 0px #ccc;
+
+			-webkit-box-shadow:0 0px 0px #ccc;
+
+		}
+
+		.h1{
+
+			font-family:'微软雅黑';
+
+		}
+
+		.button{
+
+			position:absolute;
+
+			color:#fff;
+
+			font-family:'微软雅黑';
+
+			width:80%;
+
+			line-height:2em;
+
+			border-radius:20px;
+
+			background: #DD5044;
+
+			border:0px solid;
+
+			top:40%;
+
+			left: 10%;
+
+			z-index: 2
+
+		}
+
+		.ul{
+
+			margin-top: 70px;
+
+			padding: 0 10px;
+
+			background: #ffffff;
+
+			opacity: .9;
+
+			line-height:2em;
+
+			position: relative;
+
+			z-index: 2;
+
+			border-radius:4px;
+
+		}
+
+		.li{
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+		}
+
+		.right{
+
+			position:absolute;
+
+			right:35px;
+
+			bottom:12px;
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+		}
+
+		.mui-icon-left-nav{
+
+			color: #fff;
+
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+		<div class="banner_light"></div>
+
+		<header class="mui-bar mui-bar-nav header">
+
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+				<h1 class="mui-title h1">设置</h1>
+
+		</header>
+
+
+
+	<a href="javascript:void(0)"> <button type="button" class="button"style="margin-top:50px;" onclick="loginout()" >退出登录</button></a>
+
+	<div style="padding:10px ">
+
+			<ul class="mui-table-view ul">
+
+				<li class="mui-table-view-cell mui-collapse-content"><p class="li">联系客服</p> </li>
+
+				<li class="mui-table-view-cell mui-collapse-content" ><p class="li">当前版本</p><p class="right">v1.0.0</p> </li>
+
+			</ul>
+
+	</div>
+
+
+
+
+
+</body>
+
+ <script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js" ></script>
+
+ <script type="text/javascript" src="__COM__/layer/layer.js" ></script>
+
+ <script type="text/javascript">
+
+	function loginout(){
+
+		window.location.href="{:U('User/Loginout')}";
+
+	}
+
+ </script>
+
+</html>

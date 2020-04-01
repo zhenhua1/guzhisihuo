@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>{$list['title']}</title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+	<link href="__WCSS__/public.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<style>
+
+		*{
+
+			width: 100%;
+
+		}
+
+		.body{
+
+			line-height: px;
+
+
+
+			position: fixed;
+
+
+
+			top: 0;
+
+
+
+			left: 0;
+
+
+
+			width: 100%;
+
+
+
+			height: 100%;
+
+
+
+		}
+
+		div{
+
+			width:100%
+
+		}
+
+		.mui-table-view-cell:after{
+
+			left: 0px;
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:before{
+
+			background-color:#292828;
+
+		}
+
+		.mui-table-view:after{
+
+			background-color:#292828;
+
+		}
+
+		.header{
+
+			background:#1f253d;
+
+			top:0;
+
+			box-shadow:0 0px 0px #ccc;
+
+			-webkit-box-shadow:0 0px 0px #ccc;
+
+		}
+
+		h1{
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+			font-size: 16px;
+
+			font-weight: normal;
+
+			line-height: 30px;
+
+		}
+
+		.ul{
+
+			margin-top:15%;
+
+			background:#fff;
+
+			line-height:2em;
+
+			border-radius: 4px;
+
+			padding: 10px;
+
+		}
+
+		p{
+
+			margin-left:10%;
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+			line-height: 30px;
+
+		}
+
+		h2{
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+			font-size: 16px;
+
+			font-weight: normal;
+
+			line-height: 30px;
+
+		}
+
+	</style>
+
+</head>
+
+<body style="background:#1a1d2e;">
+
+	<header class="mui-bar mui-bar-nav header">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+			<p class="mui-title"></h1>{$list['title']}</h1>
+
+	</header>
+
+		<div style="padding:30px 10px">
+
+			<ul class="mui-table-view ul" style="color:#ffffff;">
+
+				<div>
+
+					<p>{$list['content']|html_entity_decode=###}</p>
+
+				</div>
+
+			</ul>
+
+		</div>
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0029)http://103.200.29.54/reg.html -->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title></title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet">
+
+	<script src="__WJS__/mui.min.js"></script>
+
+    <link href="__WCSS__/public.css" rel="stylesheet">
+
+
+    <link href="__WCSS__/canvas/animate.css" rel="stylesheet">
+
+    <script src="__WCSS__/canvas/jquery.js"></script>
+
+    <script src="__WCSS__/canvas/modern_canvas.js"></script>
+
+	<script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js" ></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+      	mui.init();
+
+    </script>
+
+
+
+	<style>
+
+		.mui-input-group:before{
+
+			height:0px
+
+		}
+
+		.mui-input-group:after{
+
+			height: 0px;
+
+		}
+
+
+
+	</style>
+
+</head>
+
+<body style="height:100%; width:100%;" class="mui-ios mui-ios-11 mui-ios-11-0">
+
+    <!-- <canvas style="position:absolute;z-index:1;" id="banner_canvas" class="transparent_effect" width="100%" height="100%"></canvas> -->
+
+    <div style="position:absolute;height:100%;width:100%;">
+
+        <header class="mui-bar mui-bar-nav header" style="top:0;box-shadow:0 0px 0px #ccc;-webkit-box-shadow:0 0px 0px #ccc;">
+
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+            <h1 class="mui-title" style="font-family: &#39;微软雅黑&#39;;">忘记密码</h1>
+
+        </header>
+
+        <form class="mui-input-group"  id="registerForm"  style="position: absolute;  top: 15%; height: 0px; width: 80%; left: 0px; right: 0px; margin: auto; z-index:2;">
+
+
+
+            <div class="mui-input-row" style="height: 2.5em; border-radius:30px;background-color:#fff; margin-bottom: 30px;">
+
+                <img src="../Public/home/wap/images/shouji.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 5px;">
+
+                <input type="number" name="mobile" maxlength="11" style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="请输入手机号">
+
+            </div>
+
+            <!--<div class="mui-input-row" style="height: 2.5em; border-radius:30px;background-color:#fff; margin-bottom: 30px;">
+
+                <img src="../Public/home/wap/images/yanzheng.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 5px;">
+
+                <input type="number" id="sms_code" name="sms_code" style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="请输入验证码">
+
+                <button type="input" class="mui-btn mui-btn-danger" style="position: absolute;background: #fff; font-family: &#39;微软雅黑&#39;; left: 60%; top: 5px; font-size: 0.9em; color: #242424; width: 35%; border: 0px solid;" id="code">| 获取验证码</button>
+
+
+
+            </div>-->
+
+            <div class="mui-input-row" style="height: 2.5em; border-radius:30px;background-color:#fff; margin-bottom: 30px;">
+
+                <img src="../Public/home/wap/images/mima.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+                <input type="text"  name="wx_no" maxlength="20"  style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="已绑定的微信号/支付宝">
+
+            </div>
+
+            <div class="mui-input-row" style="height: 2.5em; border-radius:30px;background-color:#fff; margin-bottom: 30px;">
+
+                <img src="../Public/home/wap/images/mima.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+                <input type="password"  name="login_pwd" maxlength="20"  style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="请输入密码">
+
+            </div>
+
+            <div class="mui-input-row" style="height: 2.5em; border-radius:30px;background-color:#fff; margin-bottom: 30px;">
+
+                <img src="../Public/home/wap/images/mima.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+                <input type="password" id="confirm_password"  name="relogin_pwd" maxlength="20" style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="请确认密码">
+
+            </div>
+
+
+
+            <br>
+
+            <div class="mui-button-row">
+
+                <button type="button" id="submit"  onclick="SetPwd()" class="mui-btn mui-btn-danger" style="line-height: 2em; font-size: 0.9em; width: 100%; font-family: &#39;微软雅黑&#39;; border-radius: 12px; border: 0px solid;box-shadow: 1px 1px 1px 1px #3e221f7a;" >修改</button>
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+<script>
+
+	mui.init({
+
+		swipeBack: true //启用右滑关闭功能
+
+	});
+
+</script>
+
+<script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js" ></script>
+
+<script type="text/javascript" src="__COM__/layer/layer.js" ></script>
+
+<script type="text/javascript">
+
+    $('#code').click(function(){
+
+        var mobile=$("input[name='mobile']").val();
+
+        if(mobile=='' || mobile==null){
+
+            layer.msg('请输入手机号码');
+
+        }
+
+        $.post("{:U('Login/sendCode')}",{'mobile':mobile},function(data){
+
+            if(data.status==1){
+
+                layer.msg(data.message);
+
+                RemainTime();
+
+            }else{
+
+                layer.msg(data.message);
+
+            }
+
+        });
+
+    });
+
+
+
+    var intime="{$Think.session.set_time}";
+
+    var timenow ="<?php echo time(); ?>";
+
+
+
+    var bet=(parseInt(intime)+60)-parseInt(timenow);
+
+    $(document).ready(function(){
+
+        if(bet>0){
+
+            RemainTime();
+
+        }
+
+    });
+
+    var iTime = 59;
+
+    var Account;
+
+    if(bet>0){
+
+        iTime=bet;
+
+    }
+
+    function RemainTime(){
+
+        var iSecond,sSecond="",sTime="";
+
+        if (iTime >= 0){
+
+            iSecond = parseInt(iTime%60);
+
+            iMinute = parseInt(iTime/60)
+
+            if (iSecond >= 0){
+
+                if(iMinute>0){
+
+                    sSecond = iMinute + "分" + iSecond + "秒";
+
+                }else{
+
+                    sSecond = iSecond + "秒";
+
+                }
+
+            }
+
+            sTime=sSecond;
+
+            if(iTime==0){
+
+                clearTimeout(Account);
+
+                sTime='获取验证码';
+
+                iTime = 59;
+
+            }else{
+
+                Account = setTimeout("RemainTime()",1000);
+
+                iTime=iTime-1;
+
+            }
+
+        }else{
+
+            sTime='没有倒计时';
+
+        }
+
+        $('#code').html(sTime);
+
+
+
+    }
+
+	function SetPwd(){
+
+		var mobile=$("input[name='mobile']").val();
+
+		var wx_no=$("input[name='wx_no']").val();
+
+		var login_pwd=$("input[name='login_pwd']").val();
+
+		var relogin_pwd=$("input[name='relogin_pwd']").val();
+
+		if(login_pwd != relogin_pwd)
+
+		{
+
+			layer.msg('两次密码不一致');
+
+		}
+
+		if(login_pwd=='' || relogin_pwd=='')
+
+		{
+
+			layer.msg('密码不能为空');
+
+		}
+
+        if(mobile=='' || mobile==null){
+
+            layer.msg('请输入手机号码');
+
+        }
+
+        $.post("{:U('Login/setpsw')}",{'passwordmin':login_pwd,'mobile':mobile,'wx_no':wx_no,'password':relogin_pwd},function(data){
+
+            if(data.status==1){
+
+                layer.msg(data.message);
+
+                RemainTime();
+
+            }else{
+
+                layer.msg(data.message);
+
+            }
+
+        });
+
+	}
+
+</script>
+
+</body>
+
+</html>

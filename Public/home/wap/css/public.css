@@ -1,0 +1,239 @@
+html,body{
+
+    min-height: 100% !important;
+
+    background: linear-gradient(to bottom,#95E5FA,#259CAF) !important;
+
+}
+
+canvas{
+
+    position: fixed;
+
+    z-index:1;
+
+    top:0
+
+}
+
+.mui-btn {
+    background: #FDF6E1 !important;
+    color: #444 !important;
+}
+
+.banner_light{
+
+    background: linear-gradient(to right, #ff2ab4 0%,#e80606 99%);
+
+    border-radius: 100%;
+
+    height: 300px;
+
+    width: 300px;
+
+    position: absolute;
+
+    opacity: 0.5;
+
+    left: -10%;
+
+    top: -20%;
+
+    z-index:1;
+
+}
+
+.mui-card-content{
+
+    margin-top: 27px !important;
+
+}
+
+
+
+.header{
+
+    background: #fff !important;
+
+    top:0;
+
+    color:#555;
+
+    box-shadow:0 0px 0px #ccc;
+
+    -webkit-box-shadow:0 0px 0px #ccc;
+
+    height: 50px !important;
+
+    z-index: 1000;
+
+    opacity: .9;
+
+}
+
+.mui-table-view:before{
+
+    background-color:#292828;
+
+    height: 0;
+
+}
+
+.mui-table-view:after{
+
+    background-color:#292828;
+
+    height: 0;
+
+}
+
+.mui-active{
+
+    color: #0781E9 !important;
+
+}
+
+.content-bg{
+
+    background-position: left bottom;
+
+    background-size: cover;
+
+    padding-top: 50px;
+
+    top:0;
+
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    height: 100% !important;
+
+    padding-bottom: 120px
+
+}
+
+.mui-bar-tab{
+
+    -webkit-box-shadow: 0 0 0 rgba(0,0,0,.85) !important;
+
+    box-shadow: 0 0 0 rgba(0,0,0,.85) !important;
+
+}
+
+.mui-table-view-cell:after {
+
+    left: 0px;
+
+    background-color: #ccc !important;
+
+}
+
+
+
+
+
+.clear{
+
+    clear: both
+
+}
+
+
+
+/* shoudan*/
+
+.headlist{
+
+    color: #fff !important;
+
+}
+
+.mui-content{
+
+    padding-top: 50px !important;
+
+}
+
+.mui-slider.mui-fullscreen{
+
+    top:50px !important
+
+}
+
+.content-option{
+
+    position: absolute;
+
+    z-index: 2 !important;
+
+}
+
+.sliderSegmentedControl{
+
+    position: absolute;
+
+    z-index: 2 !important;
+
+    top: 0
+
+}
+
+.mui-pull-left{
+
+    color: #1495E7 !important;
+
+}
+
+
+
+.mask {
+
+    position: fixed;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 9999;
+
+    top: 0;
+
+    left: 0;
+
+    bottom: 0;
+
+    right: 0;
+
+    background: rgba(0, 0, 0, .9);
+
+}
+
+
+
+.mask_content {
+
+    width: 50%;
+
+    margin: 48% auto;
+
+    text-align: center
+
+}
+
+/* logoin */
+
+
+
+.forminput,.forminput2  {
+
+    margin-left: 0px !important;
+
+    padding-left: 70px !important;
+
+}
+

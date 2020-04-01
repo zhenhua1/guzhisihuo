@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>首页</title>
+
+		<meta name="description" content="This is page-header (.page-header &gt; h1)" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<link rel="stylesheet" href="__WCSS__/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace.min.css" id="main-ace-style" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-rtl.min.css" />
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+		<div id="navbar" class="navbar navbar-default">
+			<include file="pc/top"/>
+		</div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
+
+			<!-- #section:basics/sidebar -->
+			<div id="sidebar" class="sidebar responsive">
+
+
+				 <include file="pc/nav"/>
+
+			</div>
+
+			<!-- /section:basics/sidebar -->
+			<div class="main-content">
+				<!-- #section:basics/content.breadcrumbs -->
+				<div class="breadcrumbs" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">个人中心</a>
+						</li>
+					</ul><!-- /.breadcrumb -->
+
+					<!-- #section:basics/content.searchbox -->
+					<div class="nav-search" id="nav-search">
+						<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="请输入关键字 ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+								<i class="ace-icon fa fa-search nav-search-icon"></i>
+							</span>
+						</form>
+					</div><!-- /.nav-search -->
+
+					<!-- /section:basics/content.searchbox -->
+				</div>
+
+				<div class="page-content">
+
+					<!-- /section:settings.box -->
+					<div class="page-content-area">
+						<div class="row">
+							<div class="col-xs-12">
+								<div id="user-profile-2" class="user-profile">
+										<div class="tabbable">
+											<ul class="nav nav-tabs padding-18">
+												<li class="active">
+													<a data-toggle="tab" href="#home">
+														<i class="green icon-user bigger-120"></i>
+														个人中心
+													</a>
+												</li>
+
+											</ul>
+
+											<div class="tab-content no-border padding-24">
+												<div id="home" class="tab-pane in active">
+													<div class="row">
+														
+
+														<div class="col-xs-12 col-sm-9">
+															
+
+															<div class="profile-user-info">
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 用户名 </div>
+
+																	<div class="profile-info-value">
+																		<span>{$list.username}</span>
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 邀请码 </div>
+
+																	<div class="profile-info-value">
+																		<i class="icon-map-marker light-orange bigger-110"></i>
+																		<span>{$list.u_yqm}</span>
+																	
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 等级 </div>
+
+																	<div class="profile-info-value">
+																		普通会员V1
+																	</div>
+																</div>
+
+													
+															
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 保证金 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank">{$info.money}CNY</a>
+																	</div>
+																</div>
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 奖励金额 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank">{$sum_jj}</a>
+																	</div>
+																</div>
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 佣金费率 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank"><?php echo ($clist['qd_wxyj']+1) .','.($clist['qd_zfbyj']+1).','.($clist['qd_bkyj']+1);?></a>
+																	</div>
+																</div>
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 已收款金额 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank">{$sum_ysk}</a>
+																	</div>
+																</div>
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 待收款金额 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank"><?php if($sum_dsk>0){echo $sum_dsk;}else{echo '0.00';}?></a>
+																	</div>
+																</div>
+															</div>
+														</div><!-- /span -->
+													</div><!-- /row-fluid -->
+
+													
+												</div><!-- #home -->
+
+											
+											
+											</div>
+										</div>
+									</div>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+		
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!--[if !IE]> -->
+			<script type="text/javascript">
+				window.jQuery || document.write("<script src='__WCSS__/assets/js/jquery.min.js'>"+"<"+"/script>");
+			</script>
+		<!-- <![endif]-->
+		<!--[if IE]>
+			<script type="text/javascript">
+			 window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+			</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='__WCSS__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__WCSS__/assets/js/bootstrap.min.js"></script>
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="__WCSS__/assets/js/jquery-ui.custom.min.js"></script>
+		<script src="__WCSS__/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="__WCSS__/assets/js/ace-elements.min.js"></script>
+		<script src="__WCSS__/assets/js/ace.min.js"></script>
+
+	</body>
+</html>

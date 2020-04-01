@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>登录页面</title>
+		<meta name="description" content="Restyling jQuery UI Widgets and Elements" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace.min.css" id="main-ace-style" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+		<script src="assets/js/ace-extra.min.js"></script>
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	</head>
+
+	<body class="login-layout blur-login">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container" style="margin-top: 180px;">
+							<div class="center">
+								<h1>
+									<span class="white">用户登录</span>
+								</h1>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="ace-icon fa fa-coffee green"></i>
+												输入登录信息
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form name="formlogin" id="loginForm" class="formlogin mui-input-group form" method="post" action="{:U('Login/checkLogin')}">
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control"  type="number" name="account"  maxlength="11"  autocomplete="off" id="number" value="{$account}"  placeholder="请输入手机号"/>
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" type="password" name="password" maxlength="32"  placeholder="请输入密码" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace" />
+															<!-- <span class="lbl"> 记住我</span> -->
+														</label>
+
+														<button type="button"  onclick="login()" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="ace-icon fa fa-key"></i>
+															<span class="bigger-110">登录</span>
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+												
+											</div>
+
+											<div>
+												<a href="JavaScript:"  data-target="#signup-box" class="user-signup-link">
+													用户注册
+													<i class="ace-icon fa fa-arrow-right"></i>
+												</a>
+											</div>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="ace-icon fa fa-key"></i>
+												重置密码
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												输入您注册时候的email，用以接收密码重置信息
+											</p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+
+													<div class="clearfix">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+															<i class="ace-icon fa fa-lightbulb-o"></i>
+															<span class="bigger-110">发送!</span>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												返回登录
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.forgot-box -->
+
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users blue"></i>
+												新用户注册
+											</h4>
+
+											<div class="space-6"></div>
+											<p> 输入信息: </p>
+
+											<form class="mui-input-group" name="AddUser" action="{:U('Login/register')}" id="registerForm" >
+												<fieldset>
+													
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="请输入用户名" id="index_username" name="username" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="number" class="form-control"  name="mobile" maxlength="11" placeholder="请输入手机号" id="index_username"  />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password"  name="login_pwd" maxlength="20" class="form-control" placeholder="密码" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" id="confirm_password"  name="relogin_pwd" class="form-control" placeholder="确认密码" />
+															<i class="ace-icon fa fa-retweet"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text"  name="pid" value="gXZGooXUkr9Y" placeholder="请输入邀请码" id="index_username"  />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													
+
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														<button type="reset" class="width-30 pull-left btn btn-sm">
+															<i class="ace-icon fa fa-refresh"></i>
+															<span class="bigger-110">重置</span>
+														</button>
+
+														<button type="button" id="submit"  onclick="adduser()"   class="width-65 pull-right btn btn-sm btn-success">
+															<span class="bigger-110">注册</span>
+
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												返回登录
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.signup-box -->
+							</div><!-- /.position-relative -->
+
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+
+
+<!--表单验证-->
+<script type="text/javascript" src="__COM__/layer/layer.js" ></script>
+
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+
+<script>  
+	function register(){
+		window.location.href="{:U('Login/register')}" ;
+	} 
+
+</script>
+
+<script type="text/javascript">
+
+    function adduser(){
+        //验证注册
+        var thisform=document.forms['AddUser'];
+        var   reg = /^[0-9a-zA-Z]{6,20}$/;
+        var   mobile_rex=/^1[3456789]\d{9}$/;
+        var   pid=thisform.pid.value;//推荐人
+        var   username=thisform.username.value;//昵称
+        var   mobile=thisform.mobile.value;
+        var   login_pwd=thisform.login_pwd.value;
+        var   relogin_pwd=thisform.relogin_pwd.value;
+
+
+        if(username=='' || username==null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+
+        if(mobile=='' || mobile==null){
+            layer.msg('请输入手机号');
+            return false;
+        }
+        if(!mobile_rex.test(mobile)){
+            layer.msg('手机号码错误');
+            return false;
+        }
+
+        if(login_pwd=='' || login_pwd==null){
+            layer.msg('请输入密码');
+            return false;
+        }
+        if(!reg.test(login_pwd)){
+            layer.msg("登录密码只能为6-20位数字或字母");
+            return false;
+        }
+        if(login_pwd!=relogin_pwd){
+            layer.msg("两次输入登录密码不一致");
+            return false;
+        }
+		if(pid=='' || pid==null){
+            layer.msg('请输入邀请码');
+            return false;
+        }
+		
+        var post_url = $("form[name='AddUser']").attr('action');
+        var post_data= $("form[name='AddUser']").serialize();
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            data:post_data,
+            dataType: "json",
+            success: function(re_data){
+                //layer.close(index);//关闭加载
+                if(re_data.status==1){
+                    layer.msg(re_data.message);  //,data.url);
+					setTimeout(function (args) {
+						window.location.href = "{:U('Login/login')}";
+					}, 3000);
+ 
+                }
+                else{
+                    layer.msg(re_data.message);
+                }
+            }
+        });
+    }
+
+
+</script>	
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__WCSS__/assets/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='__WCSS__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+
+		</script>
+	</body>
+</html>

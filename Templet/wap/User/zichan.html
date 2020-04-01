@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title></title>
+
+
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet"/>
+
+    <link href="__WCSS__/public.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<style>
+
+		.body{
+
+			line-height: px;
+
+		}
+
+		.mui-table-view-cell:after{
+
+			left: 0px;
+
+			background-color:#ccc;
+
+		}
+
+		.mui-table-view:before{
+
+			background-color:#ccc;
+
+		}
+
+		.mui-table-view:after{
+
+			background-color:#292828;
+
+		}
+
+		.header{
+
+			background:#1f253d;
+
+			top:0;
+
+			box-shadow:0 0px 0px #ccc;
+
+			-webkit-box-shadow:0 0px 0px #ccc;
+
+		}
+
+		.h1{
+
+			font-family:'微软雅黑';
+
+		}
+
+		.img{
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width:95%;
+			border-radius:15px;
+			height: 155px;
+		}
+
+		.span{
+
+			position:absolute;
+
+			z-index:999;
+
+			color:#000;
+
+			font-family:'微软雅黑';
+
+			font-size:0.9em;
+
+			top:40px;
+
+			left:10%;
+
+		}
+
+		.span1{
+
+			position:absolute;
+
+			z-index:999;
+
+			color:#000;
+
+			font-family:'微软雅黑';
+
+			font-size:1.5em;
+
+			top:80px;
+
+			left:10%;
+
+		}
+
+		.divc{
+
+			background: #fff;
+
+		    height: 60px;
+
+		    width: 95%;
+
+		    border-radius: 10px;
+
+		    /*box-shadow: 2px 0px 20px 0px #ffffff;*/
+
+		    margin-left: auto;
+
+		    margin-right: auto;
+
+		}
+
+		.button{
+
+			line-height:1.5em;
+
+			left:15px;
+
+			font-size:0.9em;
+
+			width:40%;
+
+			font-family:'微软雅黑';
+
+			border-radius:30px;
+
+			border:0px solid;
+
+			background:#0062cc;
+
+			top:15px;
+
+			position:absolute;
+
+		}
+
+		.button1{
+
+			line-height:1.5em;
+
+			right:15px;
+
+			font-size:0.9em;
+
+			width:40%;
+
+			font-family:'微软雅黑';
+
+			border-radius:30px;
+
+			border:0px solid;
+
+			background:#0062cc;
+
+			top:9px;
+
+			position:absolute;
+
+		}
+
+		.mui-card-content {
+
+    		 margin-top: 0px !important;
+
+}
+
+		.ul1{
+
+			top:10px;
+
+			background:rgba(255,255,255,0.9);
+
+			line-height:3.5em;
+
+		}
+
+		.imgg{
+
+			position:absolute;
+
+			width:40px;
+
+			margin-left:10px;
+
+			margin-top:10px;
+
+		}
+
+		.p3{
+
+			margin-left:18%;
+
+			font-family:'微软雅黑';
+
+			color:#000;
+
+		}
+
+		.p4{
+
+			position:absolute;
+
+			margin-left:70%;
+
+			top: 11px;
+
+			font-family:'微软雅黑';
+
+			font-size:1em;
+
+			color:#0781E9;
+
+		}
+
+	</style>
+
+</head>
+
+<body style="background-image: linear-gradient(to right, #515e90 0%,#33396e 99%)">
+
+	<header class="mui-bar mui-bar-nav header">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+
+			<h1 class="mui-title h1">我的钱包</h1>
+
+	</header>
+
+
+
+		<div style="position: relative;width:100%;height:185px;margin-top:70px;">
+
+			<img src="../Public/home/wap/images/ziliaobg.png" class="img"/>
+
+			<span class="span">金额</span>
+
+			<span class="span1">{$info.money}CNY</span>
+
+			<div style="clear:both;"></div>
+
+		</div>
+
+		<div style="clear:both;"></div>
+
+		<div class="mui-card-content divc" style="position: relative;">
+
+			<a href="{:U('Recharge/chongzhi')}">
+
+			<div class="mui-button-row">
+
+				<button type="button" class="mui-btn mui-btn-danger button">充值</button>
+
+			</div>
+
+			</a>
+
+			<a href="{:U('Withdraw/tixian')}">
+
+			<div class="mui-button-row">
+
+				<button type="button" class="mui-btn mui-btn-danger button1">提现</button>
+
+			</div>
+
+			</a>
+
+		</div>
+
+			<div style="padding:10px; ">
+
+				<ul class="mui-table-view ul1" style="border-radius:4px;">
+
+
+
+				<li class="mui-table-view-cell mui-media  mui-collapse mui-collapse-content">
+
+					<img src="../Public/home/wap/images/jiangli.png" class="imgg" />
+
+					<p class="p3">奖励金额</p>
+
+					<p class="p4"><?php if($sum_jj>0){echo $sum_jj;}else{echo '0.00';}?></p>
+
+				</li>
+
+				<!-- <li class="mui-table-view-cell mui-media  mui-collapse mui-collapse-content">
+
+					<img src="../Public/home/wap/images/yongjin.png" class="imgg" />
+
+					<p class="p3">佣金费率</p>
+
+					<p class="p4">
+
+						<?php echo ($clist['qd_wxyj']+1) .','.($clist['qd_zfbyj']+1).','.($clist['qd_bkyj']+1);?>
+
+					</p>
+
+				</li> -->
+
+				<li class="mui-table-view-cell mui-collapse-content">
+
+					<img src="../Public/home/wap/images/shou.png" class="imgg" style="width: 50px; margin-left: 5px; bottom: 20px;"/>
+
+					<p class="p3">已收款金额</p>
+
+					<p class="p4">{$sum_ysk}</p>
+
+				</li>
+
+				<li class="mui-table-view-cell mui-collapse-content">
+
+					<img src="../Public/home/wap/images/dai.png" class="imgg"/>
+
+					<p class="p3">待收款金额</p>
+
+					<p class="p4"><?php if($sum_dsk>0){echo $sum_dsk;}else{echo '0.00';}?></p>
+
+				</li>
+
+			</ul>
+
+			</div>
+
+
+
+</body>
+
+</html>

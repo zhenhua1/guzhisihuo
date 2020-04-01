@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0029)http://103.200.29.54/reg.html -->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title></title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet">
+
+	<script src="__WJS__/mui.min.js"></script>
+
+	<link href="__WCSS__/public.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js" ></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+      	mui.init();
+
+	</script>
+
+	<style>
+
+		.mui-input-group:before{
+
+			height:0px
+
+		}
+
+		.mui-input-group:after{
+
+			height: 0px;
+
+		}
+
+		.list_nav{
+
+			height: 2.5em;
+
+			border-radius:30px;
+
+			background:rgba(255,255,255,0.9);
+
+			margin-bottom: 20px;
+
+		}
+
+		.addtouxiang{
+
+			width: 200px;
+
+			margin: 0 auto;
+
+			height: 200px;
+
+			text-align: center;
+
+		}
+
+		.addtouxiang-title{
+
+			display: inline-block;
+
+			color: #Fff !important;
+
+			margin-bottom: 10px;
+
+		}
+
+		.addtouxiang #pic{
+
+			width: 150px;
+
+			margin: 0 auto;
+
+			height: 150px;
+
+			background-image: url(../Public/home/wap/images/tianjia.png);
+
+			background-size: 150px 150px;
+
+
+
+		}
+
+		.addtouxiang img{
+
+			width:150px !important;
+
+			height: 150px !important;
+
+
+
+		}
+
+		.mask {
+
+			position: fixed;
+
+			width: 100%;
+
+			height: 100%;
+
+			z-index: 9999;
+
+			top: 0;
+
+			left: 0;
+
+			bottom: 0;
+
+			right: 0;
+
+			background: rgba(0, 0, 0, .5);
+
+		}
+
+		.mask_content {
+
+			width: 50%;
+
+			margin: 48% auto;
+
+			text-align: center
+
+		}
+
+		.mask_content input{
+
+			width: 200px;
+
+			height: 40px;
+
+			border-radius: 8px;
+
+			margin-top: 10px;
+
+		}
+
+	</style>
+
+</head>
+
+<body style="background-image: linear-gradient(to right, #515e90 0%,#33396e 99%);">
+
+	<header class="mui-bar mui-bar-nav header" style="background: #1f253d; top:0;box-shadow:0 0px 0px #ccc;-webkit-box-shadow:0 0px 0px #ccc;">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+			<h1 class="mui-title">完善资料</h1>
+
+		</header>
+
+	<form class="mui-input-group" name="AddUser" action="{:U('User/set_info')}" id="registerForm"  style="position: absolute;  top: 12%; height: 0px; width: 80%; left: 0px; right: 0px; margin: auto; ">
+
+		<div class="addtouxiang">
+
+			<span class="addtouxiang-title">点击添加/更改头像</span>
+
+			<!-- <div id="pic" style="color:#fff">
+
+				<img id="pic_show" src="" alt="">
+
+			</div>
+
+			<input id="upload"  capture="camera"  <?php if($list['rz_st']==1){echo "readonly='readonly'";}?> name="file" accept="image/*" type="file" style="display: none">				 -->
+
+			<div id="pic" style="color:#fff">
+
+				<img id="picShow" src="{$list['portrait']}" alt="">
+
+			</div>
+
+			<input id="upload" name="file" accept="image/*" type="file" style="display: none">
+
+		</div>
+
+		<div class="mui-input-row list_nav">
+
+			<img src="../Public/home/wap/images/nubmer.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+			<input type="text" id="index_username" name="username" value="{$list['username']}"  style="color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="用户名">
+
+		</div>
+
+		<div class="mui-input-row list_nav">
+
+			<img src="../Public/home/wap/images/shouji.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 5px;">
+
+			<input type="number" name="mobile" maxlength="11"  value="{$list['mobile']}"  style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="手机号">
+
+		</div>
+
+		<div class="mui-input-row list_nav">
+
+			<img src="../Public/home/wap/images/real_name.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+			<input type="text"  name="truename" value="{$list['truename']}" -0 style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="姓名">
+
+		</div>
+
+		<div class="mui-input-row list_nav">
+
+			<img src="../Public/home/wap/images/qq.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+			<input type="text" id="confirm_password"  name="userqq" value="{$list['userqq']}" style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="QQ">
+
+		</div>
+
+		<div class="mui-input-row list_nav">
+
+			<img src="../Public/home/wap/images/id_card.png" style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;">
+
+			<input type="text" id="confirm_password"  name="usercard"  value="{$list['usercard']}"     style=" color: #0062CC; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: &#39;微软雅黑&#39;;" placeholder="身份证">
+
+		</div>
+
+		<div class="mui-button-row">
+
+			<button type="button" id="submit"    class="mui-btn mui-btn-danger" style="line-height: 2em; font-size: 0.9em; width: 100%; font-family: &#39;微软雅黑&#39;; border-radius: 30px; border: 0px solid; background:#DD4F43;box-shadow: 1px 1px 1px 1px #7d4b4b" >保存</button>
+
+		</div>
+
+	</form>
+
+	<div class="mask" style="display: none">
+
+		<div class="mask_content">
+
+			<input type="button" value="选择拍照" id="paizhao">
+
+			<br>
+
+			<br>
+
+			<input type="button" value="选择相册" id="xiangche">
+
+		</div>
+
+	</div>
+
+<script>
+
+	mui.init({
+
+		swipeBack: true //启用右滑关闭功能
+
+	});
+
+</script>
+
+ <script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js" ></script>
+
+ <script type="text/javascript" src="__COM__/layer/layer.js" ></script>
+
+<script type="text/javascript">
+
+	function app1(){
+
+		function plusReady(){
+
+		// 弹出系统选择按钮框
+
+		mui("body").on("tap","#pic",function(){
+
+			page.imgUp();
+
+		})
+
+
+
+		mui("body").on("tap",".mask",function(){
+
+			page.imgDown();
+
+		})
+
+
+
+		mui("body").on("tap","#paizhao",function(){
+
+			appendByCamera();
+
+		})
+
+
+
+		mui("body").on("tap","#xiangche",function(){
+
+			appendByGallery();
+
+		})
+
+
+
+	}
+
+	var page=null;
+
+	page={
+
+		imgUp:function(){
+
+			var m=this;
+
+			$(".mask").show();
+
+			// plus.nativeUI.actionSheet({cancel:"取消",buttons:[
+
+			// 	{title:"拍照"},
+
+			// 	{title:"从相册中选择"}
+
+			// ]}, function(e){//1 是拍照  2 从相册中选择
+
+			// 	switch(e.index){
+
+			// 		case 1:appendByCamera();break;
+
+			// 		case 2:appendByGallery();break;
+
+			// 	}
+
+			// });
+
+		},
+
+		imgDown:function(){
+
+			$(".mask").hide();
+
+		}
+
+		//摄像头
+
+	}
+
+
+
+	// 拍照添加文件
+
+	function appendByCamera(){
+
+		plus.camera.getCamera().captureImage(function(e){
+
+			plus.io.resolveLocalFileSystemURL(e, function(entry) {
+
+				var path = entry.toLocalURL();
+
+				entry.file( function(file){
+
+					ResizeImage(path, file.name);
+
+				} );
+
+			}, function(e) {
+
+				mui.toast("读取拍照文件错误：" + e.message);
+
+			});
+
+
+
+		});
+
+	}
+
+	// 从相册添加文件
+
+	function appendByGallery(){
+
+		plus.gallery.pick(function(path){
+
+			plus.io.resolveLocalFileSystemURL(path, function(entry) {
+
+				var path = entry.toLocalURL();
+
+				entry.file( function(file){
+
+					ResizeImage(path, file.name);
+
+				} );
+
+			}, function(e) {
+
+				mui.toast("读取照片文件错误：" + e.message);
+
+			});
+
+			// alert(path);
+
+			// ResizeImage(path);
+
+			// document.getElementById("picShow").src = path;
+
+		});
+
+	}
+
+	var pic='';
+
+	function ResizeImage(src, name) {
+
+		src = src.replace('file://','');
+
+		var fileid = name+'_thumb';//图片名称
+
+		plus.zip.compressImage({
+
+				src: src,
+
+				dst: "_doc/" + fileid + ".jpg",
+
+				overwrite: true,
+
+				width: '50%',
+
+				height: 'auto',
+
+				format: 'jpg',
+
+				quality: 10
+
+			},
+
+			function(e) {
+
+				//这里读取压缩后的图片转base64,数据库保存用
+
+				var reader = new plus.io.FileReader();
+
+				reader.onloadend = function(e) {
+
+					var strimg = e.target.result; //base64图片
+
+					pic = strimg;
+
+					// console.log(strimg);
+
+					// alert(strimg);// 在IOS苹果手机下测试这里是null, Android正常
+
+					document.getElementById("picShow").src = strimg;
+
+					// showImg2div(strimg);
+
+				};
+
+				// alert(e.target);
+
+				// alert(e.target.replace('file://',''));
+
+
+
+				reader.readAsDataURL(e.target.replace('file://',''));
+
+
+
+			},
+
+			function(err) {
+
+
+
+			}
+
+		);
+
+	}
+
+	if(window.plus){
+
+		plusReady();
+
+	}else{
+
+		document.addEventListener("plusready",plusReady,false);
+
+	}
+
+
+
+	function getObjectURL(file) {
+
+		var url = null;
+
+		if (window.createObjectURL != undefined) { // basic
+
+			url = window.createObjectURL(file);
+
+		} else if (window.URL != undefined) { // mozilla(firefox)
+
+			url = window.URL.createObjectURL(file);
+
+		} else if (window.webkitURL != undefined) { // webkit or chrome
+
+			url = window.webkitURL.createObjectURL(file);
+
+		}
+
+		return url;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+	// $('#cuanjdd').click(function () {
+
+
+
+	// 	// var icon = $('#icon').val();
+
+	// 	var ewmclass = $('#ewmclass').val();
+
+	// 	var price = $('#price').val();
+
+	// 	var skaccount = $('#skaccount').val();
+
+	// 	// var pic = $('#upload')[0].files[0];
+
+	// 	// var pic = document.getElementById('picShow').src;
+
+	// 	// var file = new FormData();
+
+
+
+	// 	// if(icon == ''){
+
+	// 	//     msg_alert('没有上传二维码');
+
+	// 	// 	return false;
+
+	// 	// }
+
+
+
+	// 	if ($("#checkedclass_bank").is(".mui-selected") == false) {
+
+	// 		msg_alert('请勾选银行卡');
+
+	// 		return false;
+
+	// 	}
+
+
+
+	// 	if (price == '') {
+
+	// 		msg_alert('请输入收款金额');
+
+	// 		return false;
+
+	// 	}
+
+
+
+	// 	if (skaccount == '') {
+
+	// 		msg_alert('请输入收款账号');
+
+	// 		return false;
+
+	// 	}
+
+
+
+	// 	// if (pic != "") {
+
+	// 		// file.append("pic", pic);
+
+	// 	// }
+
+
+
+	// 	// file.append("ewm_class", 3)
+
+	// 	// file.append("price", price);
+
+	// 	// file.append("skaccount", skaccount);
+
+
+
+	// 	data = {"ewm_class":3, "price":price, "skaccount":skaccount, "pic":pic.substr(pic.indexOf(',') + 1)};
+
+
+
+	// 	// alert(JSON.stringify(data));
+
+	// 	$("#cuanjdd").attr('disabled', true)
+
+	// 	var wt=plus.nativeUI.showWaiting();
+
+
+
+	// 	// $.post('/User/ewmup', data, function(res){
+
+	// 	// 	alert(1);
+
+	// 	// 	// alert(JSON.stringify(res));
+
+	// 	// }, 'json');
+
+
+
+
+
+	// 		// success:function (mes) {
+
+	// 		//     if(mes.status == 1){
+
+	// 		//         msg_alert(mes.message,mes.url);
+
+	// 		//     }else{
+
+	// 		//         msg_alert(mes.message);
+
+	// 		//     }
+
+	// 		// }
+
+	// 	});
+
+
+
+	// // $(function() {
+
+	// // 	$("#pic").click(function() {
+
+	// // 		$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+	// // 		$("#upload").on("change", function() {
+
+	// // 			var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+	// // 			if (objUrl) {
+
+	// // 				$("#pic_show").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+	// // 			}
+
+	// // 		});
+
+	// // 	});
+
+	// // });
+
+	// // function getObjectURL(file) {
+
+	// // 	var url = null;
+
+	// // 	if (window.createObjectURL != undefined) { // basic
+
+	// // 		url = window.createObjectURL(file);
+
+	// // 	} else if (window.URL != undefined) { // mozilla(firefox)
+
+	// // 		url = window.URL.createObjectURL(file);
+
+	// // 	} else if (window.webkitURL != undefined) { // webkit or chrome
+
+	// // 		url = window.webkitURL.createObjectURL(file);
+
+	// // 	}
+
+	// // 	return url;
+
+	// // }
+
+
+
+
+
+
+
+
+
+
+
+    $('#submit').click(function (){
+
+        //验证注册
+
+        var thisform=document.forms['AddUser'];
+
+		// var   email_reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+
+        var  username=thisform.username.value;
+
+        var  mobile=thisform.mobile.value;
+
+        var  truename=thisform.truename.value;
+
+        // var   email=thisform.email.value;
+
+        var  userqq=thisform.userqq.value;
+
+        // var   wx_no=thisform.wx_no.value;
+
+		var  usercard=thisform.usercard.value;
+
+
+
+		// var pic = $('#upload')[0].files[0];
+
+
+
+		// var file = new FormData();
+
+
+
+		// console.log(pic)
+
+
+
+      	// file.append('image', pic);
+
+
+
+
+
+        if(truename=='' || truename==null){
+
+            layer.msg('请输入姓名');
+
+            return false;
+
+        }
+
+		// if(email=='' || email==null){
+
+        //     layer.msg('请输入邮箱');
+
+        //     return false;
+
+        // }
+
+		// if(!email_reg.test(email)){
+
+		// 	layer.msg('邮箱格式不正确');
+
+        //     return false;
+
+		// }
+
+		if(userqq=='' || userqq==null){
+
+            layer.msg('请输入QQ');
+
+            return false;
+
+        }
+
+		// if(wx_no=='' || wx_no==null){
+
+        //     layer.msg('请输入微信');
+
+        //     return false;
+
+        // }
+
+		if(usercard=='' || usercard==null){
+
+            layer.msg('请输入身份证号');
+
+            return false;
+
+		}
+
+
+
+		// if (pic != "") {
+
+		// 	file.append("pic", pic);
+
+		// // 	}
+
+		// 	file.append("truename",  truename);
+
+		// 	file.append("userqq",  userqq);
+
+		// 	file.append("usercard",  usercard);
+
+
+
+			// console.log(file)
+
+		data = {"userqq":userqq, "usercard":usercard, "truename":truename, "pic":pic.substr(pic.indexOf(',') + 1)};
+
+        var post_url = $("form[name='AddUser']").attr('action');
+
+
+
+		$.post(post_url,data,function(res){
+
+			if(res.status==1){
+
+				layer.msg(res.msg);  //,data.url);
+
+				window.location.href = "{:U('User/index')}";
+
+			}else{
+
+				layer.msg(res.msg);
+
+			}
+
+		},'json');
+
+			// $.ajax({
+
+			// 	type:"POST",
+
+			// 	url:post_url,
+
+			// 	data : data,
+
+            //     cache : false,
+
+            //     processData : false,
+
+			// 	contentType : false,
+
+			// 	success : function(res) {
+
+			// 		if(res.status==1){
+
+			// 			layer.msg(res.msg);  //,data.url);
+
+			// 			setTimeout(function (args) {
+
+			// 				window.location.href = "{:U('User/index')}";
+
+			// 			}, 3000);
+
+			// 		}else{
+
+			// 			layer.msg(res.msg);
+
+			// 		}
+
+			// 	}
+
+			// })
+
+
+
+        // $.ajax({
+
+        //     type: "POST",
+
+        //     url: post_url,
+
+        //     data:post_data,
+
+        //     dataType: "json",
+
+        //     success: function(data){
+
+		// 		console.log(data);
+
+        //         if(data.status==1){
+
+        //             layer.msg(data.msg);  //,data.url);
+
+		// 			setTimeout(function (args) {
+
+		// 				window.location.href = "{:U('User/index')}";
+
+		// 			}, 3000);
+
+        //         }else{
+
+        //             layer.msg(data.msg);
+
+        //         }
+
+        //     }
+
+        // });
+
+	})
+
+	}
+
+	function liu(){
+
+		$(function() {
+
+		$("#pic").click(function() {
+
+			$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+			$("#upload").on("change", function() {
+
+				var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+
+					if (objUrl) {
+
+						$("#picShow").attr("src", objUrl); //将图片路径存入src中，显示出图片
+
+					}
+
+				});
+
+			});
+
+		});
+
+
+
+	//建立一?可存取到?file的url
+
+		function getObjectURL(file) {
+
+			var url = null;
+
+			if (window.createObjectURL != undefined) { // basic
+
+				url = window.createObjectURL(file);
+
+			} else if (window.URL != undefined) { // mozilla(firefox)
+
+				url = window.URL.createObjectURL(file);
+
+			} else if (window.webkitURL != undefined) { // webkit or chrome
+
+				url = window.webkitURL.createObjectURL(file);
+
+			}
+
+			return url;
+
+		}
+
+		$('#submit').click(function () {
+
+
+
+			// var icon = $('#icon').val();
+
+			var thisform=document.forms['AddUser'];
+
+			// var   email_reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+
+			var  username=thisform.username.value;
+
+			var  mobile=thisform.mobile.value;
+
+			var  truename=thisform.truename.value;
+
+			// var   email=thisform.email.value;
+
+			var  userqq=thisform.userqq.value;
+
+			// var   wx_no=thisform.wx_no.value;
+
+			var  usercard=thisform.usercard.value;
+
+			// var pic = document.getElementById('picShow').src;
+
+			var pic = document.getElementById('upload').files[0];
+
+			var file = new FormData();
+
+			// var file=new Array();
+
+			console.log(pic)
+
+			// if(icon == ''){
+
+			//     msg_alert('没有上传二维码');
+
+			// 	return false;
+
+			// }
+
+
+
+
+
+
+
+				if(truename=='' || truename==null){
+
+				layer.msg('请输入姓名');
+
+				return false;
+
+			}
+
+			// if(email=='' || email==null){
+
+			//     layer.msg('请输入邮箱');
+
+			//     return false;
+
+			// }
+
+			// if(!email_reg.test(email)){
+
+			// 	layer.msg('邮箱格式不正确');
+
+			//     return false;
+
+			// }
+
+			if(userqq=='' || userqq==null){
+
+				layer.msg('请输入QQ');
+
+				return false;
+
+			}
+
+			// if(wx_no=='' || wx_no==null){
+
+			//     layer.msg('请输入微信');
+
+			//     return false;
+
+			// }
+
+			if(usercard=='' || usercard==null){
+
+				layer.msg('请输入身份证号');
+
+				return false;
+
+			}
+
+
+
+			if (pic != "") {
+
+				file.append("pic", pic);
+
+			}
+
+			file.append("ewm_class",3);
+
+			file.append("userqq", userqq);
+
+			file.append("usercard", usercard);
+
+			file.append("truename",truename)
+
+			// console.log(file)
+
+			// alert(JSON.stringify(file))
+
+			var post_url = $("form[name='AddUser']").attr('action');
+
+			$.ajax({
+
+				type: "POST",
+
+				url: post_url,
+
+				data: file,
+
+				cache: false,
+
+				processData : false,
+
+				contentType : false,
+
+				success: function (res) {
+
+
+
+					if (res.status == 1) {
+
+						layer.msg(res.msg);  //,data.url);
+
+
+
+						// setTimeout(function (args) {
+
+							window.location.href = "{:U('User/index')}";
+
+						// }, 3000);
+
+					} else {
+
+
+
+						layer.msg(res.msg);
+
+					}
+
+				}
+
+			})
+
+		})
+
+	}
+
+	function check_useragent(){
+
+			var u = navigator.userAgent;
+
+			if(u.indexOf('Html5Plus')>-1){
+
+				app1();
+
+			}else{
+
+				liu();
+
+			}
+
+		}
+
+	check_useragent()
+
+</script>
+
+<script>
+
+
+
+</script>
+
+</body>
+
+</html>

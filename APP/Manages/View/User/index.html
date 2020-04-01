@@ -1,0 +1,382 @@
+<extend name="Public/layout"/>
+
+<block name="style" >
+
+    <link rel="stylesheet" type="text/css" href="__LYUI__/css/lyui.extend.min.css">
+
+    <link rel="stylesheet" type="text/css" href="__ADMIN_CSS__/style.css">
+
+
+
+
+
+</block>
+
+
+
+<block name="main">
+
+   <div id="main" class="col-xs-12 col-sm-9 main" style="overflow-y: scroll;">
+
+        <!-- 面包屑导航 -->
+
+        <ul class="breadcrumb">
+
+            <li><i class="fa fa-map-marker"></i></li>
+
+
+
+            <li class="text-muted"><?php echo $_menu_tab['name']['0'] .'/'.$_menu_tab['name']['1'];?></li>
+
+
+
+        </ul>
+
+
+
+        <!-- 主体内容区域 -->
+
+        <div class="tab-content ct-tab-content">
+
+            <div class="panel-body">
+
+                <div class="builder formbuilder-box">
+
+                        
+
+                        <div class="form-group"></div>
+
+
+
+                        <!-- 顶部工具栏按钮 -->
+
+                        <div class="builder-toolbar">
+
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-12 clearfix" style="margin-bottom:20px;padding-top:0px;padding-bottom:10px;">
+
+                                        
+
+                                            <div class="form-group right">
+
+												<form class="form" method="get" action="">
+
+                                                <div style="float:left;width:15%;" class="" >
+
+                                                    <select name="querytype" class="form-control lyui-select select">
+
+                                                        <option  value="userid">ID号</option>
+
+                                                         <option {eq name=":input('get.querytype')" value="mobile" }selected="true"{/eq}  value="mobile">手机</option>
+
+                                                    </select>                                            
+
+                                                </div>
+
+
+
+                                                <div style="float:left;width:30%;" class="input-group search-form">
+
+                                                    <input  type="text" name="keyword" class="search-input form-control" value="{$_GET.keyword}" placeholder="输入搜索内容">
+
+                                                    <span class="input-group-btn"><a class="btn btn-default search-btn"><i class="fa fa-search"></i></a></span>
+
+                                                </div>
+
+												 </form>
+
+												 
+
+												<form class="form" method="get" action="">
+
+												<div style="float:left;width:10%;" class="input-group search-form" style="">
+
+                                                    <input type="hidden" value="1" name="coinpx" />
+
+                                                    <input type="submit" value="余额排序" style="border:none;height:33px;width:80%;background:#2699ed;color:#ffffff;cursor:pointer;"/></button>
+
+                                                </div>
+
+												 </form>
+
+
+
+												
+
+                                            </div>
+
+                                       
+
+                                 </div>
+
+                            </div>
+
+                        </div>
+
+                        <style type="text/css">tr,td{margin: 0 !important;padding: 5px 5px !important;}</style>
+
+
+
+                        <!-- 数据列表 -->
+
+                        <div class="builder-container">
+
+                            <div class="row">
+
+                                <div class="col-xs-12">
+
+                                    <div class="builder-table">
+
+                                        <div class="panel panel-default table-responsive">
+
+                                            <table class="table table-bordered table-striped table-hover">
+
+                                              <thead>
+
+                                                <tr>
+
+                                                    <th style="font-size:12px;">UID</th>
+
+                                                    <th style="font-size:12px;">账号</th>
+
+                                                    <th style="font-size:12px;">昵称</th>
+
+                                                    <th style="font-size:12px;">注册</th>
+
+                                                    <th style="font-size:12px;">直推</th>
+
+                                                    <th style="font-size:12px;">上级</th>
+
+                                                    <th style="font-size:12px;">余额</th> 
+
+                                                    <th style="font-size:12px;">佣金点</th> 
+
+                                                    <th style="font-size:12px;">冻结</th>
+
+                                                    <th style="font-size:12px;">认证</th>
+
+                                                    <th style="font-size:12px;">奖励</th>
+
+                                                    <th style="max-width:20%;font-size:12px;" >操作</th>
+
+                                                </tr>
+
+                                            </thead>
+
+												<tbody>
+
+													<empty name = 'list'>
+
+														<tr class="builder-data-empty">
+
+                                                            <td class="text-center empty-info" colspan="20"  style="font-size:12px;">
+
+                                                                <i class="fa fa-database"></i> 暂时没有数据<br>
+
+                                                            </td>
+
+                                                        </tr> 
+
+													<else/>
+
+													<foreach name = 'list' item='v'>
+
+														<tr>
+
+															<td style="font-size:12px;"><?php echo $v['userid'];?></td>
+
+															<td style="font-size:12px;"><?php echo $v['account'];?></td>
+
+															<td style="font-size:12px;"><?php echo $v['username'];?></td>
+
+															<td style="font-size:12px;"><?php echo date('Y-m-d',$v['reg_date']);?></td>
+
+															<td style="font-size:12px;"><?php echo M('user')->where(array('pid'=>$v['userid']))->count();?></td>
+
+															<td style="font-size:12px;"><?php echo getSjuser($v['pid']);?></td>
+
+															<td style="font-size:12px;"><?php echo $v['money'];?></td>
+
+
+
+                                                            <td style="font-size:12px;"><?php echo $v['adj_point'];?></td>
+
+                                                            
+
+															<td style="font-size:12px;">
+
+															<?php if($v['status']==1){?>
+
+																<a href="<?php echo U('User/set_status',array('userid'=>$v['userid'],'st'=>1));?>" style="font-size:12px;color:green;cursor:pointer;">冻结</a>
+
+
+
+															<?php }elseif($v['status']==0){?>
+
+																<a href="<?php echo U('User/set_status',array('userid'=>$v['userid'],'st'=>2));?>" style="font-size:12px;color:red;cursor:pointer;">解冻</a>
+
+															<?php }else{?>
+
+																<span style="font-size:12px; color:yellow;">黑了</span>
+
+															<?php }?>
+
+															</td>
+
+															<?php if($v['rz_st']!=1){?>
+
+																<td style="font-size:12px; color:red;">否</td>	
+
+															<?php }else{?>
+
+																<td style="font-size:12px; color:green;">是</td>		
+
+															<?php }?>
+
+															<td>
+                                                                <input type="text" value="" style="width:70px"> 元 <button onclick="jl(this,{$v['userid']})">奖励</button>                             
+                                                            </td>
+
+															<td style="font-size:12px;">
+
+																<a href="<?php echo U('User/edit',array('userid'=>$v['userid']));?>" style="font-size:12px;cursor:pointer;">详情 ||</a>
+
+																<a href="<?php echo U('User/restrict',array('userid'=>$v['userid']));?>" style="font-size:12px;cursor:pointer;">限制 ||</a>
+
+																<a href="<?php echo U('User/del',array('userid'=>$v['userid']));?>" style="font-size:12px;cursor:pointer;">删除</a>
+
+															</td>
+
+	
+
+														</tr>
+
+													</foreach>
+
+													</empty>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+
+
+
+                                        
+
+                                           <style>
+
+												.pages a,.pages span {display:inline-block;padding:2px 5px;margin:0 1px;border:1px solid #f0f0f0;-webkit-border-radius:3px; -moz-border-radius:3px;border-radius:3px;}
+
+												.pages a,.pages li {display:inline-block;list-style: none;text-decoration:none; color:#58A0D3;}
+
+												.pages a.first,.pages a.prev,.pages a.next,.pages a.end{ margin:0;}
+
+												.pages a:hover{ border-color:#50A8E6;}
+
+												.pages span.current{ background:#50A8E6;color:#FFF; font-weight:700;border-color:#50A8E6;}
+
+											</style>
+
+											<div class="pages"><br /> <div align="right">{$page}</div></div>
+
+                                    
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                </div>
+
+            </div>
+
+    </div>                   
+
+</div>
+
+</block>
+
+
+
+<block name="script">
+
+<script type="text/javascript">
+
+    function jl(obj,id){
+        if (confirm('是否确认奖励')) {
+            var m = $(obj).prev();
+            var money = $(obj).prev().val();
+            if (money < 1) {
+                alert('请输入正确金额');
+            } else {
+                $.post("{:U('jl')}",{money:money,id:id},function(data){
+                    if (data.code == 200) {
+                        alert('奖励成功');
+                        m.val('');
+                    } else {
+                        alert('奖励失败');
+                    }
+                },'json');
+            }
+        }
+    }
+
+    $('.date').datetimepicker({
+
+        format: 'yyyy-mm-dd',
+
+        language:"zh-CN",
+
+        minView:2,
+
+        autoclose:true,
+
+        todayBtn:1, //是否显示今日按钮
+
+    });
+
+ 
+
+    $(document).ready(function(){
+
+  
+
+    $(".bky").click(function(){
+
+      
+
+        this.href="###";
+
+        alert("您无权限访问");  
+
+        return false;     
+
+
+
+        });
+
+
+
+    });
+
+	
+
+	
+
+	
+
+	
+
+</script>
+
+  <!--   <script type="text/javascript" src="__LYUI__/js/lyui.extend.min.js"></script> -->
+
+</block>

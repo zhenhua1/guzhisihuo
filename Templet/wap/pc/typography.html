@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>抢单</title>
+
+		<meta name="description" content="This is page-header (.page-header &gt; h1)" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<link rel="stylesheet" href="__WCSS__/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace.min.css" id="main-ace-style" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="__WCSS__/assets/css/ace-rtl.min.css" />
+			<script type="text/javascript" src="__COM__/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="__COM__/layer/layer.js"></script>
+	<script type="text/javascript" src="__COM__/js/index.js" ></script>
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+		<!-- #section:basics/navbar.layout -->
+		<div id="navbar" class="navbar navbar-default">
+			 <include file="pc/top" />
+		</div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
+
+			<div id="sidebar" class="sidebar responsive">
+
+				 <include file="pc/nav" />
+
+			</div>
+
+			<div class="main-content">
+
+				<div class="breadcrumbs" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="index.html">首页</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">抢单</a>
+						</li>
+						
+					</ul><!-- /.breadcrumb -->
+
+				
+
+					<!-- /section:basics/content.searchbox -->
+				</div>
+
+				<!-- /section:basics/content.breadcrumbs -->
+				<div class="page-content">
+
+					<div class="page-content-area">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									
+
+									<div class="col-sm-12">
+										<div class="widget-box">
+											<div class="widget-header widget-header-flat">
+												<h4 class="widget-title">抢单</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+												
+													<div class="row">
+														<div class="col-xs-12">
+															<ul class="list-unstyled spaced">
+																<li>
+																	<i class="ace-icon fa fa-bell-o bigger-110 purple"></i>
+																	最大抢单金额 : {$max_pipeinone}
+																</li>
+
+																<li>
+																	<i class="ace-icon fa fa-check bigger-110 green"></i>
+																	当前抢单难数 :  {$qd_nd}
+																</li>
+
+																<li>
+																	<i class="ace-icon fa fa-bell-o bigger-110 purple"></i>
+																	开启时段整差 : <?php foreach($tarr as $v){echo $v.',';}?>时
+																</li>
+															</ul>
+
+															<ul class="list-unstyled spaced2">
+																<li>
+																	<i class="ace-icon fa fa-circle green"></i>
+																	佣金加成<?php echo $qd_yjjc*10;?>%
+																</li>
+
+																
+																<li>
+																	<ul class="list-inline">
+																		<li>
+																			<i class="ace-icon fa fa-share green bigger-110"></i>
+																			【请选择收款类型】
+																		</li>
+																		
+
+
+                                                                           <!--
+
+																		<li>
+                                                                          <input name="form-field-checkbox" checked value="1" type="radio" id="ewmclass" />微信 &nbsp;&nbsp;
+																		</li>
+
+																		<li>
+																			<input value="2" name="form-field-checkbox" type="radio" id="ewmclass" />支付宝&nbsp;&nbsp;
+																		</li>
+
+                                                                         -->
+
+
+
+																		<li>
+																			<input value="3" name="form-field-checkbox" type="radio" id="ewmclass" />转银行卡
+																		</li>
+
+
+
+
+
+
+                                                                    <div class="clearfix form-actions">
+																		<div class="col-md-offset-3 col-md-9">
+																			<button class="btn btn-info" type="button" id="pipeinnow" onclick="start_qd()">
+																				<i class="ace-icon fa fa-check bigger-110" ></i>
+																				开始自动抢单
+																			</button>
+
+																			&nbsp; &nbsp; &nbsp;
+																			
+																		</div>
+																	</div>
+																	</ul>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><!-- /.col -->
+								</div>
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+		<script type="text/javascript">
+	function start_qd(){
+		var qdclass = $('#ewmclass').val();
+		$("#pipeinnow").attr('disabled',true);
+		$.post("{:U('Index/pipeiorder')}",
+			{'qdclass' : qdclass},
+			function(data){
+				if(data.status==1){
+					layer.msg(data.msg);  //,data.url);
+					setTimeout(function (args) {
+						window.location.href = "{:U('Index/shoudan')}";
+					}, 3000); 
+				}else{
+					layer.msg(data.msg);
+				}
+			});
+	}
+	
+	function start_auto(){
+		var qdclass = $('#ewmclass').val();
+		$("#autopipei").attr('disabled',true);
+		$.post("{:U('Index/pipeiauto')}",
+			{'qdclass' : qdclass},
+			function(data){
+				if(data.status==1){
+					layer.msg(data.msg);  //,data.url);
+					setTimeout(function (args) {
+						window.location.href = "{:U('Index/index')}";
+					}, 3000); 
+				}else{
+					layer.msg(data.msg);
+				}
+			});
+	}
+	
+	
+
+</script>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!--[if !IE]> -->
+			<script type="text/javascript">
+				window.jQuery || document.write("<script src='__WCSS__/assets/js/jquery.min.js'>"+"<"+"/script>");
+			</script>
+		<!-- <![endif]-->
+		<!--[if IE]>
+			<script type="text/javascript">
+			 window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+			</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='__WCSS__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__WCSS__/assets/js/bootstrap.min.js"></script>
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="__WCSS__/assets/js/jquery-ui.custom.min.js"></script>
+		<script src="__WCSS__/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="__WCSS__/assets/js/ace-elements.min.js"></script>
+		<script src="__WCSS__/assets/js/ace.min.js"></script>
+
+	</body>
+</html>

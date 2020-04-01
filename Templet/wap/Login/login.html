@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0026)http://103.200.29.54/login -->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title></title>
+
+    <link href="__WCSS__/mui.min.css" rel="stylesheet">
+
+    <link href="__WCSS__/login.css" rel="stylesheet">
+
+	<link href="__WCSS__/public.css" rel="stylesheet">
+
+    <link href="__WCSS__/canvas/animate.css" rel="stylesheet">
+
+	<script src="__WCSS__/canvas/jquery.js"></script>
+
+	<script src="__WCSS__/canvas/modern_canvas.js"></script>
+
+	<script src="__WJS__/mui.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+      	mui.init();
+
+    </script>
+
+	<style>
+
+
+
+	</style>
+
+</head>
+
+<body style="background-image:url(../Public/home/wap/images/beijing.png);background-size: 100%;height:100%; width:100%;">
+
+	<!-- <canvas style="position:absolute;z-index:1;" id="banner_canvas" class="transparent_effect" width="100%" height="100%"></canvas> -->
+
+	<div style="background-image: #1495E7;position:absolute; height:100%; width:100%;">
+
+		<img src="../Public/home/wap/images/P_logo.png" class="img" style="height:120px;width:120px;top:7%;border-radius:10px;padding:5px;background:#fff">
+
+		<form name="formlogin" id="loginForm" class="formlogin mui-input-group form" method="post" action="{:U('Login/checkLogin')}" style="z-index:3;background:#fff;">
+
+			<div class="frombox">
+
+				<div class="mui-input-row formdiv">
+
+					<img src="../Public/home/wap/images/nubmer.png" class="formimg">
+
+					<input type="number" name="account" style="position:absolute;top:-9px;" maxlength="11"  autocomplete="off" id="number" value="{$account}" class="forminput" placeholder="请输入手机号">
+
+				</div>
+
+				<div class="mui-input-row formdiv2">
+
+					<img src="../Public/home/wap/images/mima.png" class="formimg2">
+
+					<input type="password" name="password" maxlength="32" id="password" class="forminput2" placeholder="请输入密码"  value="" >
+
+				</div>
+
+				<div  class="mui-card-content-inner jzmm">
+
+					<input type="checkbox" name="ispwd" id="ispwd" value="true">记住密码
+
+				</div>
+
+				<div class="mui-card-content-inner formdiv3 wjmm">
+
+					<a href="{:U('login/getpsw')}">忘记密码？</a>
+
+				</div>
+
+				<br><br><br>
+
+				<div class="mui-button-row">
+
+					<button type="button"  onclick="login()"  class="mui-btn mui-btn-danger login" id="submit" style="width:100%;background:#DD4F42;box-shadow: 1px 1px 1px 1px #925954;">登录</button>
+
+				</div>
+
+			</div>
+
+
+
+			<br>
+
+			<div class="mui-card-content">
+
+
+
+			<div class="mui-card-content-inner">
+
+			<p class="reg">还没有账号？<a href="javascript:void(0);"  onclick="register()" style="color:#f5f5f5;"> 立即注册</a></p>
+
+
+
+			</div>
+
+			</div>
+
+		</form>
+
+	</div>
+
+
+
+
+
+</body>
+
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+
+
+
+
+
+<!--表单验证-->
+
+<script type="text/javascript" src="__COM__/layer/layer.js" ></script>
+
+
+
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+
+
+
+<script>
+
+  window.onload = function(){
+
+    var account = document.getElementById('number');
+
+    var password = document.getElementById('password');
+
+    var ispwd = document.getElementById('ispwd');
+
+
+
+    if(getCookie('account') && getCookie('password')){
+
+      account.value = getCookie('account');
+
+      password.value = getCookie('password');
+
+      ispwd.checked = true;
+
+    }
+
+
+
+    ispwd.onchange = function(){
+
+      if(!this.checked){
+
+        account.value = '';
+
+        password.value ='';;
+
+        ispwd.checked = false;
+
+        delCookie('account');
+
+        delCookie('password');
+
+      }
+
+    };
+
+  };
+
+
+
+
+
+	function register(){
+
+		window.location.href="{:U('Login/register')}" ;
+
+	}
+
+
+
+</script>
+
+</html>
